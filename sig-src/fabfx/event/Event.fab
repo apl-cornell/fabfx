@@ -1,2 +1,4 @@
+package fabfx.event;
+
 public class Event {
 }

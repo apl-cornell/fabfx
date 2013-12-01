@@ -1,0 +1,16 @@
+package fabfx.scene.control;
+
+import fabfx.event.*;
+
+public class Button[label L, label M] {
+
+	native public String{L} getText ();
+
+	native public void setText {L} (String{L} text);
+
+//	native public void setOnAction {M} (EventHandler{M} handler); // TODO: what
+//	does the signature of EventHandler look like?
+
+	native public void fire {M} ();
+
+}
