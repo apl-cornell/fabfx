@@ -1,0 +1,14 @@
+package fabfx.application;
+
+import fabfx.stage.Stage;
+
+abstract public class Application [label L, label M] {
+
+	abstract public void start(Stage[L,M] primaryStage);
+
+	native public void launchApp (String[] args);
+
+	native public Application ()
+		where provider <= {⊤→User; ⊤←User};
+
+}

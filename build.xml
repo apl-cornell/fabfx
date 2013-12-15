@@ -124,10 +124,8 @@
 
   <target name="jar" unless="jar.uptodate" description="Creates FabFX jar file">
     <antcall target="build-all" />
-    <jar jarfile="${jar.fabfx}" basedir="${fabfx.classes}" includes="**/*.class"
-		                                                       excludes="**/*.java" />
-    <jar jarfile="${jar.fabfx-sig}" basedir="${fabfx.sig-classes}" includes="**/*.class"
-		                                                       excludes="**/*.java" />
+    <jar jarfile="${jar.fabfx}" basedir="${fabfx.classes}" excludes="**/*.java" />
+    <jar jarfile="${jar.fabfx-sig}" basedir="${fabfx.sig-classes}" excludes="**/*.java" />
   </target>
 
 </project>

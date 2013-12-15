@@ -4,12 +4,16 @@ import fabfx.event.*;
 
 public class Button[label L, label M] {
 
-	native public String{L} getText ();
+	native public Button  ();
+
+	native public Button {L} (String{L} text);
+
+	native public String {L} getText ();
 
 	native public void setText {L} (String{L} text);
 
-//	native public void setOnAction {M} (EventHandler{M} handler); // TODO: what
-//	does the signature of EventHandler look like?
+	native public void setOnAction {M} (EventHandler[M]{M} handler)
+		where M <= {*->User}; 
 
 	native public void fire {M} ();
 
