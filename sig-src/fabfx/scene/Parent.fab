@@ -1,0 +1,5 @@
+package fabfx.scene;
+
+public abstract class Parent [label L, label M] extends Node[L,M] {
+
+}

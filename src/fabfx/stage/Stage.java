@@ -1,7 +1,7 @@
 package fabfx.stage;
 
 import fabric.lang.security.Label;
-//import fabfx.scene.Scene;
+import fabfx.scene.Scene;
 
 public class Stage {
 
@@ -21,7 +21,7 @@ public class Stage {
     }
 
     public void setScene (Label sL, Label sM, Scene s) {
-		jstage.setScene(s.getJScene());
+		jstage.setScene((javafx.scene.Scene) s.getJavaFXImpl());
     }
 
 }

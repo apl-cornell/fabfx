@@ -1,0 +1,5 @@
+package fabfx.scene;
+
+public abstract class Node [label L, label M] {
+
+}
