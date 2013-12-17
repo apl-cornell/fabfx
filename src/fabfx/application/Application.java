@@ -6,10 +6,14 @@ abstract public class Application extends javafx.application.Application {
     final Label L;
     final Label M;
     
-    abstract public void start (fabfx.stage.Stage primaryStage);
+    abstract public void run (fabfx.stage.Stage primaryStage);
 
     public void launchApp (String[] args) {
 	launch(args);
+    }
+
+    public void launchApp () {
+	launch(new String[]{});
     }
 
     public Application (Label L, Label M) {
@@ -20,7 +24,7 @@ abstract public class Application extends javafx.application.Application {
     @Override
     public void start (javafx.stage.Stage jstage) {
 	fabfx.stage.Stage fstage = new fabfx.stage.Stage(this.L, this.M, jstage);
-	this.start(fstage);
+	this.run(fstage);
     }
 
 }

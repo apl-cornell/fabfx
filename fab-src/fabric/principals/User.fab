@@ -1,0 +1,36 @@
+package fabric.principals;
+
+import fabric.util.Map;
+
+public class User extends ExternalPrincipal {
+	public User () {
+		super("GUI User");
+	}
+
+	public static User{*!:} getInstance{*!:}() {
+		atomic {
+			FabricWorker cl = FabricWorker.getWorker();
+			if (cl != null) {
+				final Store store = cl.getStore("worker");
+				if (store != null) {
+					Map rootMap = store.getRoot();
+					if (rootMap != null) {
+						Object obj = rootMap.get("UserPrincipal");
+						User user = null;
+						if (obj instanceof User) {
+							user = (User) obj;
+						} else {
+							user = new User@store();
+							rootMap.put("UserPrincipal", user);
+						}
+
+						return user;
+					}
+				}
+			}
+
+			return null;
+		}
+	}
+
+}

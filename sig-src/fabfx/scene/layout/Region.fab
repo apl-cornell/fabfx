@@ -1,0 +1,9 @@
+package fabfx.scene.layout;
+
+import fabfx.scene.Parent;
+
+public class Region [label L, label M] extends Parent[L,M] {
+
+	native public Region ();
+
+}

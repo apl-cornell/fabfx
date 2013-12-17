@@ -93,9 +93,9 @@
     </javac>
   </target>
 
-  <target name="build-fabfx-sig" depends="init">
+  <target name="build-fabfx-sig" depends="init, build-fabfx-user-sig">
     <fabsigc dest="${fabfx.sig-classes}">
-      <arg value="-cp"/>
+      <arg value="-cp"/> <arg value="${fabfx.sig-classes}" />
 			<!--
 			<arg pathref="collections.classpath" />
 			-->
@@ -103,6 +103,13 @@
       <arg value="-sourcepath" /> <arg value="${sig-src}" />
       <fileset dir="${sig-src}" includes="**/*.fab" />
     </fabsigc>
+  </target>
+
+  <target name="build-fabfx-user-sig" depends="init">
+    <fabc dest="${fabfx.sig-classes}">
+      <arg value="-trusted-providers" />
+      <fileset dir="${fab-src}" includes="fabric/principals/*.fab" />
+    </fabc>
   </target>
 
   <target name="build-all"

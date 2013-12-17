@@ -5,14 +5,20 @@ import fabric.lang.security.Label;
 
 public abstract class Node implements Wrapper {
 
-    Label L;
-    Label M;
+    final public Label L;
+    final public Label M;
 
-    javafx.scene.Node jnode;
+    final public javafx.scene.Node jnode;
 
     @Override
     public Object getJavaFXImpl() {
 	return this.jnode;
+    }
+
+    public Node (Label L, Label M, javafx.scene.Node jnode) {
+	this.L = L;
+	this.M = M;
+	this.jnode = jnode;
     }
 
 }
