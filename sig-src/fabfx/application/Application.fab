@@ -7,7 +7,7 @@ abstract public class Application [label L, label M] extends java.lang.Object {
 	private static int __JIF_SAFE_CONSTRUCTORS$20050907 = 0;
 	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 = 0;
 
-	abstract public void run (Stage[L,M] primaryStage);
+	abstract public void run {L} (Stage[L,M] {L} primaryStage);
 
 	native public void launchApp (/*String[] args*/);
 
