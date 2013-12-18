@@ -2,14 +2,18 @@ package fabfx.application;
 
 import fabfx.stage.Stage;
 
-abstract public class Application extends java.lang.Object {
+abstract public class Application [label L, label M] extends java.lang.Object {
 	private static int __JIF_SIG_OF_JAVA_CLASS$20030619 = 0;
 	private static int __JIF_SAFE_CONSTRUCTORS$20050907 = 0;
 	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 = 0;
 
-	abstract public void run{*provider} (Stage primaryStage);
+	abstract public void run {L} (Stage[L,M] {L} primaryStage);
+
+	abstract public void launchApp ();
 
 	static public native void launch ();
+
+	native public Application ();
 
 //		where provider <= {⊤→User; ⊤←User}; 
 		/*
@@ -18,4 +22,3 @@ abstract public class Application extends java.lang.Object {
 		*/
 
 }
-
