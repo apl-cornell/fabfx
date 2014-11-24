@@ -2,9 +2,9 @@ package fabfx.scene;
 
 public class Scene [label L, label M] {
 
-	native public Scene (label rL, label rM, Parent[rL,rM]{L} root); 
+	public Scene (label rL, label rM, Parent[rL,rM]{L} root) {}
 
-	native public Scene (label rL, label rM, Parent[rL,rM]{L} root, double{L}
-			width, double{L} height);
+	public Scene (label rL, label rM, Parent[rL,rM]{L} root, double{L}
+			width, double{L} height) {}
 
 }

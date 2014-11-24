@@ -6,8 +6,8 @@ public class Stage {
 
 	native public void Stage ();
 
-	native public void show ();
+	native public void show {⊤→User} ();
 
-	native public void setScene (label sL, label sM, Scene[sL,sM] {*sL} scene);
+	native public void setScene (label sL, label sM, Scene[sL,sM] {⊤→User} scene);
 
 }

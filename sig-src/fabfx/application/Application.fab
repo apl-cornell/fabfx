@@ -7,9 +7,9 @@ abstract public class Application extends java.lang.Object {
 	private static int __JIF_SAFE_CONSTRUCTORS$20050907 = 0;
 	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 = 0;
 
-	abstract public void run{*provider} (Stage primaryStage);
+	abstract public void run{⊤→User} (Stage{⊤→User} primaryStage);
 
-	static public native void launch ();
+	static public native void launch{⊤→User} ();
 
 //		where provider <= {⊤→User; ⊤←User}; 
 		/*

@@ -4,9 +4,9 @@ import fabfx.event.*;
 
 public class Button[label L, label M] {
 
-	native public Button  ();
+	public Button () {}
 
-	native public Button {L} (String{L} text);
+	public Button {L} (String{L} text) {}
 
 	native public String {L} getText ();
 

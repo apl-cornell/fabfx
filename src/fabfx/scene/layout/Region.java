@@ -3,7 +3,6 @@ package fabfx.scene.layout;
 import fabfx.scene.Parent;
 import fabric.lang.security.Label;
 import javafx.scene.layout.Pane;
-import javax.servlet.http.*;
 
 public class Region extends Parent {
 
