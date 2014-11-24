@@ -14,7 +14,17 @@
   ****************************************************************************
   -->
 
-  <import file="../../../common.xml" />
+  <!-- set the prefix for accessing environment variables -->
+  <property environment="env" />
+
+  <!-- Import properties file. -->
+  <property file="${basedir}/config.properties" />
+  <echo message="fabric.home is ${fabric.home}" level="verbose" />
+  <condition property="fabric.home" value="${env.FABRIC}">
+  <not> <isset property="fabric.home" /> </not>
+  </condition>
+
+  <import file="${env.FABRIC}/common.xml" />
   <import file="common.xml" />
 
 	<!--
