@@ -5,9 +5,9 @@
 
   <dirname property="fabfx.home" file="${ant.file.fabfx.common}" />
 
-  <property name="jar.fabfx" location="${fabric.home}/lib/fabfx.jar" />
+  <property name="jar.fabfx" location="${fabfx.home}/lib/fabfx.jar" />
 
-  <property name="jar.fabfx-sig" location="${fabric.home}/lib/fabfx-sig.jar" />
+  <property name="jar.fabfx-sig" location="${fabfx.home}/lib/fabfx-sig.jar" />
 
   <path id="fabfx.classpath">
     <pathelement path="${jar.fabfx}" />
