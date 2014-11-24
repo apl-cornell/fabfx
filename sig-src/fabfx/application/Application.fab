@@ -3,19 +3,14 @@ package fabfx.application;
 import fabfx.stage.Stage;
 
 abstract public class Application extends java.lang.Object {
-	private static int __JIF_SIG_OF_JAVA_CLASS$20030619 = 0;
-	private static int __JIF_SAFE_CONSTRUCTORS$20050907 = 0;
-	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 = 0;
 
-	abstract public void run{⊤→User} (Stage{⊤→User} primaryStage);
+	abstract public void run{User->;User<-} (Stage{User->;User<-} primaryStage);
 
-	static public native void launch{⊤→User} ();
-
-//		where provider <= {⊤→User; ⊤←User}; 
-		/*
-		the app should be run with the User's permission (the integrity part);
-		proprietary software (the conf part)
-		*/
+	native public static void launch{User->;User<-} (String[] args);
+	/*
+	   the app should be run with the User's permission (the integrity part);
+	   proprietary software (the conf part)
+	 */
 
 }
 

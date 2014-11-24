@@ -1,0 +1,22 @@
+package hello;
+
+import fabfx.application.Application;
+import fabfx.stage.Stage;
+import fabric.principals.User;
+
+public class Hello extends Application {
+	
+	public static void main{*provider}(principal{p<-} p, String[] args):{p->;p<-}
+	throws Exception {
+		atomic {
+			if (provider <= new label {p->;p<-} && p actsfor User)
+				fabfx.application.Application.launch(args);
+			else
+				throw new Error("Provider has insufficient integrity.");
+		}
+	}
+
+	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
+	}
+
+}
