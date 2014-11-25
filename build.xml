@@ -122,9 +122,10 @@
     </fabc>
   </target>
 
-  <target name="build-all"
-		  depends="build-fabfx-java, build-fabfx-fab, build-fabfx-sig, jar"
-		  description="Builds the FabFX framework" />
+  <target name="build-source"
+		  depends="build-fabfx-java, build-fabfx-fab, build-fabfx-sig"
+		  description="Builds all kinds of source files" />
+  <target name="build-all" depends="build-source, jar" />
   <target name="all" depends="build-all" />
 
   <!--
@@ -140,7 +141,7 @@
   </uptodate>
 
   <target name="jar" unless="jar.uptodate" description="Creates FabFX jar file">
-    <antcall target="build-all" />
+    <antcall target="build-source" />
     <jar jarfile="${jar.fabfx}" basedir="${fabfx.classes}" excludes="**/*.java" />
     <jar jarfile="${jar.fabfx-sig}" basedir="${fabfx.sig-classes}" excludes="**/*.java" />
   </target>
