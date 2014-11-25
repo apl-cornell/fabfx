@@ -41,6 +41,7 @@
   -->
 
   <target name="build"
+          depends="fabfx"
           description="Builds the Hello World example">
     <fabc dest="${hello.home}/classes">
       <arg value="-sourcepath" /> <arg value="${hello.home}/src" />
