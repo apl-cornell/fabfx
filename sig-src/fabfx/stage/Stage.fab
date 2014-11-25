@@ -11,5 +11,7 @@ public class Stage {
 	native public void show {User->;User<-} ();
 
 	native public void setScene (label sL, label sM, Scene[sL,sM] {User->;User<-} scene);
+	
+	native public void setTitle (String title);
 
 }

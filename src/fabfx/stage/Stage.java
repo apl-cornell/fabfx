@@ -5,18 +5,22 @@ import fabfx.scene.Scene;
 
 public class Stage {
 
-    private final javafx.stage.Stage jstage;
+	private final javafx.stage.Stage jstage;
 
-    public Stage (javafx.stage.Stage jstage) {
+	public Stage(javafx.stage.Stage jstage) {
 		this.jstage = jstage;
-    }
+	}
 
-    public void show () {
+	public void show() {
 		jstage.show();
-    }
+	}
 
-    public void setScene (Label sL, Label sM, Scene s) {
+	public void setScene(Label sL, Label sM, Scene s) {
 		jstage.setScene((javafx.scene.Scene) s.getJavaFXImpl());
-    }
+	}
+
+	public void setTitle(String title) {
+		jstage.setTitle(title);
+	}
 
 }

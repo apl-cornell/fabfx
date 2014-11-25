@@ -8,6 +8,7 @@ public class HelloApp extends Application {
 
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		atomic{
+			primaryStage.setTitle("Hello world!");
 			primaryStage.show();
 		}
 	}
