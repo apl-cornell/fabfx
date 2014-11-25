@@ -6,7 +6,7 @@ abstract public class Application extends java.lang.Object {
 
 	abstract public void run{User->;User<-} (Stage{User->;User<-} primaryStage);
 
-	native public static void launch{User->;User<-} (String[] args);
+	native public void launchApp{User->;User<-} ();
 	/*
 	   the app should be run with the User's permission (the integrity part);
 	   proprietary software (the conf part)

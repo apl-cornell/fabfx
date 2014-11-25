@@ -3,6 +3,8 @@ package fabfx.stage;
 import fabfx.scene.Scene;
 
 public class Stage {
+	
+	private int{User->;User<-}@{*->} __dumb;
 
 	native public void Stage ();
 

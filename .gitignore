@@ -1,3 +1,9 @@
 classes
 sig-classes
 .*.sw?
+.classpath
+var
+etc
+config.properties
+lib/fabfx-sig.jar
+lib/fabfx.jar

@@ -33,4 +33,9 @@ public class User extends ExternalPrincipal {
 		}
 	}
 
+	// Don't much care what store is, we're going to create it where we want
+	public static User{⊤←} getInstance{⊤←}(Store store) {
+		return getInstance();
+	}
+
 }

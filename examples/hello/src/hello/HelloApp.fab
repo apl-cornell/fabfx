@@ -1,0 +1,15 @@
+package hello;
+
+import fabfx.application.Application;
+import fabfx.stage.Stage;
+import fabric.principals.User;
+
+public class HelloApp extends Application {
+
+	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
+		atomic{
+			primaryStage.show();
+		}
+	}
+
+}
