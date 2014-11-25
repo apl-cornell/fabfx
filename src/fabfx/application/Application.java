@@ -3,8 +3,15 @@ package fabfx.application;
 import com.sun.javafx.application.LauncherImpl;
 
 import fabric.lang.security.Label;
+import fabric.lang.security.Principal;
 
 abstract public class Application extends javafx.application.Application {
+
+	public final Principal p;
+
+	public Application(Principal p) {
+		this.p = p;
+	}
 
 	public void fabfx$application$Application$() {
 	}

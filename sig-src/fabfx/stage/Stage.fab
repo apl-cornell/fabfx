@@ -2,15 +2,15 @@ package fabfx.stage;
 
 import fabfx.scene.Scene;
 
-public class Stage {
+public class Stage[principal P] {
 	
-	private int{User->;User<-}@{*->} __dumb;
+	private int{P->;P<-}@{P->} __dumb;
 
 	native public void Stage ();
 
-	native public void show {User->;User<-} ();
+	native public void show{P->;P<-} ();
 
-	native public void setScene (label sL, label sM, Scene[sL,sM] {User->;User<-} scene);
+	native public void setScene (label sL, label sM, Scene[sL,sM] {P->;P<-} scene);
 	
 	native public void setTitle (String title);
 

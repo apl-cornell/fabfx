@@ -12,8 +12,7 @@ public class Button[label L, label M] {
 
 	native public void setText {L} (String{L} text);
 
-	native public void setOnAction {M} (EventHandler[M]{M} handler)
-		where M <= {*->User}; 
+	native public void setOnAction {M} (EventHandler[M]{M} handler);
 
 	native public void fire {M} ();
 

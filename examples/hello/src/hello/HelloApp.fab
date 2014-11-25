@@ -4,13 +4,11 @@ import fabfx.application.Application;
 import fabfx.stage.Stage;
 import fabric.principals.User;
 
-public class HelloApp extends Application {
+public class HelloApp extends Application[User] {
 
-	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
-		atomic{
-			primaryStage.setTitle("Hello world!");
-			primaryStage.show();
-		}
+	public void run{User->;User<-} (Stage[User]{User->;User<-} primaryStage) {
+		primaryStage.setTitle("Hello world!");
+		primaryStage.show();
 	}
 
 }

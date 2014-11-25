@@ -2,15 +2,11 @@ package fabfx.application;
 
 import fabfx.stage.Stage;
 
-abstract public class Application extends java.lang.Object {
+abstract public class Application[principal p] extends java.lang.Object {
 
-	abstract public void run{User->;User<-} (Stage{User->;User<-} primaryStage);
+	abstract public void run{p->;p<-} (Stage[p]{p->;p<-} primaryStage);
 
-	native public void launchApp{User->;User<-} ();
-	/*
-	   the app should be run with the User's permission (the integrity part);
-	   proprietary software (the conf part)
-	 */
+	native public void launchApp{p->;p<-} ();
 
 }
 

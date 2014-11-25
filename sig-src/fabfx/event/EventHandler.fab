@@ -2,14 +2,6 @@ package fabfx.event;
 
 public interface EventHandler[label M] {
 
-	public void handle {M; *<-User} (Event{M; *<-User} e);
-
-	// TODO difference from SIF?
-	// 1) SIF registers an action with an label, while in FabFX
-	// EventHandler is parameterized by a label. This simplifies method
-	// signatures (so we can simply use the JavaFX classes to replace those that a
-	// FabFX app is compiled against). The downside is the reusability of an
-	// EventHandler is reduced (but this does not have major impacts because
-	// most EventHandler instances are used only in one context).
+	public void handle {M} (Event{M} e);
 
 }
