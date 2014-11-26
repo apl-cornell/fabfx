@@ -103,7 +103,7 @@ public class Game extends Application {
 		resetTilePosns();
 		setLabelsFromState();
 
-		outer.setFocusTraversable(true); // seems to be necessary to get key events
+		outer.requestFocus(true); // necessary to get key events
 		outer.setOnKeyPressed(new ArrowHandler());
 		stage.sizeToScene();
 		stage.show();
