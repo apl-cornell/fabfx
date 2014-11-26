@@ -2,17 +2,14 @@ package fabfx.application;
 
 import com.sun.javafx.application.LauncherImpl;
 
-import fabric.lang.security.Label;
-import fabric.lang.security.Principal;
-
 abstract public class Application extends javafx.application.Application {
 
 	/**************************************************
 	 *** These are needed for the parameterized version
 	 *
-	 * public final Principal p;
+	 * public final fabric.lang.security.Principal p;
 	 * 
-	 * public Application(Principal p) { this.p = p; }
+	 * public Application(fabric.lang.security.Principal p) { this.p = p; }
 	 * 
 	 *************************************************/
 
