@@ -1,0 +1,7 @@
+package javafx.collections;
+
+public interface ObservableList[label L] {
+
+	public boolean add{L}(Object{L} o);
+
+}

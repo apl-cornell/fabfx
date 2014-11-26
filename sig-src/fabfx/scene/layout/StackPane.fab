@@ -1,0 +1,9 @@
+package fabfx.scene.layout;
+
+import fabfx.scene.Parent;
+
+public class StackPane [label L, label M] extends Pane[L,M] {
+
+	public StackPane () {}
+
+}
