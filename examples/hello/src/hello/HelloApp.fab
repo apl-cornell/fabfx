@@ -2,11 +2,10 @@ package hello;
 
 import fabfx.application.Application;
 import fabfx.stage.Stage;
-import fabric.principals.User;
 
-public class HelloApp extends Application[User] {
+public class HelloApp extends Application {
 
-	public void run{User->;User<-} (Stage[User]{User->;User<-} primaryStage) {
+	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		primaryStage.setTitle("Hello world!");
 		primaryStage.show();
 	}

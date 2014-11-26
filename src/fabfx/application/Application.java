@@ -7,11 +7,14 @@ import fabric.lang.security.Principal;
 
 abstract public class Application extends javafx.application.Application {
 
-	public final Principal p;
-
-	public Application(Principal p) {
-		this.p = p;
-	}
+	/**************************************************
+	 *** These are needed for the parameterized version
+	 *
+	 * public final Principal p;
+	 * 
+	 * public Application(Principal p) { this.p = p; }
+	 * 
+	 *************************************************/
 
 	public void fabfx$application$Application$() {
 	}
