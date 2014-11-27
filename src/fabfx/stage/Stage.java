@@ -16,7 +16,7 @@ public class Stage {
 	}
 
 	public void setScene(Label sL, Label sM, Scene s) {
-		jstage.setScene((javafx.scene.Scene) s.getJavaFXImpl());
+		jstage.setScene((javafx.scene.Scene) s._impl());
 	}
 
 	public void setTitle(String title) {

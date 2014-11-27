@@ -9,22 +9,23 @@ public class Scene implements Wrapper {
 
 	private final javafx.scene.Scene jscene;
 
-	public Scene (Label L, Label M, Label rL, Label rM, Parent root) {
+	public Scene(Label L, Label M, Label rL, Label rM, Parent root) {
 		this.L = L;
 		this.M = M;
-		this.jscene = new javafx.scene.Scene((javafx.scene.Parent) root.getJavaFXImpl());
+		this.jscene = new javafx.scene.Scene((javafx.scene.Parent) root._impl());
 	}
 
-	public Scene (Label L, Label M, Label rL, Label rM, Parent root, 
+	public Scene(Label L, Label M, Label rL, Label rM, Parent root,
 			double width, double height) {
 		this.L = L;
 		this.M = M;
 		this.jscene = new javafx.scene.Scene(
-				(javafx.scene.Parent) root.getJavaFXImpl(), width, height);
+				(javafx.scene.Parent) root._impl(), width, height);
 	}
 
 	@Override
-	public Object getJavaFXImpl() {
+	public Object _impl() {
 		return this.jscene;
 	}
+
 }

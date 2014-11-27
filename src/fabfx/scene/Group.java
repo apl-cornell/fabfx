@@ -11,12 +11,12 @@ public abstract class Group extends Parent {
 	}
 
 	@Override
-	protected javafx.scene.Group jnode() {
+	public javafx.scene.Group _impl() {
 		return (javafx.scene.Group) this.jnode;
 	} 
 
 	public ObservableList getChildren() {
-		return jnode().getChildren();
+		return _impl().getChildren();
 	}
 
 } 
