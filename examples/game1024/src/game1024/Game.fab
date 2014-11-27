@@ -1,4 +1,4 @@
-package hello;
+package game1024;
 
 import fabfx.application.Application;
 import fabfx.stage.Stage;
@@ -6,7 +6,7 @@ import fabfx.scene.*;
 import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
 
-public class HelloApp extends Application {
+public class Game extends Application {
 
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		atomic {
@@ -20,7 +20,7 @@ public class HelloApp extends Application {
 					final ObservableList outer_ = outer.getChildren();
 					if (outer_.store$ actsfor User) {
 						outer_.add(l,l,content);
-						primaryStage.setTitle("Hello world!");
+						primaryStage.setTitle("1024");
 						primaryStage.show();
 						return;
 					}

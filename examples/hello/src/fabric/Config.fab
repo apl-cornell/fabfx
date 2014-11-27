@@ -7,6 +7,6 @@ public final class Config {
   /**
    * The key in the root map for finding the principal.
    */
-  public static final String{*<-} helloAppPrincipalMapKey = "hello";
+  public static final String{*<-} helloPrincipalMapKey = "hello";
   
 }
