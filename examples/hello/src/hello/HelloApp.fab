@@ -2,12 +2,25 @@ package hello;
 
 import fabfx.application.Application;
 import fabfx.stage.Stage;
+import fabfx.scene.*;
 
 public class HelloApp extends Application {
 
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
-		primaryStage.setTitle("Hello world!");
-		primaryStage.show();
+		atomic {
+			if (this.store$ actsfor User) {
+				final label l = new label {User->;User<-};
+				final Group[l,l] outer = new Group[l,l]();
+				if (outer.store$ actsfor User) {
+					outer.getChildren();
+					primaryStage.setTitle("Hello world!");
+					primaryStage.show();
+				} else {
+					primaryStage.setTitle("Something bad just happened!");
+					primaryStage.show();
+				}
+			}		
+		}
 	}
 
 }

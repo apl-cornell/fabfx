@@ -6,9 +6,9 @@ import javafx.scene.layout.Pane;
 
 public class Region extends Parent {
 
-    public Region (Label L, Label M) {
-	super(L, M, new javafx.scene.layout.Region()); 
-	System.out.println("--In Region.java's constructor");
-    }
+	public Region(Label L, Label M) {
+		super(L, M);
+		this._impl = new javafx.scene.layout.Region();
+	}
 
 }
