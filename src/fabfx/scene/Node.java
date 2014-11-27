@@ -2,7 +2,6 @@ package fabfx.scene;
 
 import fabfx.Wrapper;
 import fabric.lang.security.Label;
-import fabric.worker.Store;
 
 public abstract class Node implements Wrapper {
 
@@ -12,17 +11,25 @@ public abstract class Node implements Wrapper {
 	public javafx.scene.Node _impl;
 
 	@Override
-	public Object _impl() {
+	public javafx.scene.Node _impl() {
 		return this._impl;
 	}
 
 	public Node(Label L, Label M) {
 		this.L = L;
 		this.M = M;
+		this.makeImpl();
 	}
 
 	public fabric.worker.Store $getStore() {
 		return fabric.worker.Worker.getWorker().getLocalStore();
+	}
+
+	/**
+	 * This method is supposed to be selectively implemented by subclasses.
+	 */
+	protected void makeImpl() {
+		throw new UnsupportedOperationException();
 	}
 
 }

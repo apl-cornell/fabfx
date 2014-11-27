@@ -1,0 +1,11 @@
+package fabfx.collections;
+
+import fabfx.scene.Node;
+
+public class ObservableList[label L, label M] {
+
+	private int {L}@{this.store$->} __dumb;
+	
+	public native boolean add{L}(label cL, label cM, Node[cL, cM]{L} n);
+
+}

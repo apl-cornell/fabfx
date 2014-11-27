@@ -1,13 +1,12 @@
 package fabfx.scene;
 
-import javafx.collections.ObservableList;
+import fabfx.collections.ObservableList;
 import fabric.lang.security.Label;
 
 public class Group extends Parent {
 
 	public Group(Label L, Label M) {
 		super(L, M);
-		this._impl = new javafx.scene.Group();
 	}
 
 	public Group fabfx$scene$Group$() {
@@ -23,8 +22,14 @@ public class Group extends Parent {
 		return (javafx.scene.Group) this._impl;
 	}
 
-	public ObservableList getChildren() {
-		return _impl().getChildren();
+	@Override
+	protected void makeImpl() {
+		this._impl = new javafx.scene.Group();
 	}
 
+	public ObservableList getChildren() {
+		ObservableList l = new ObservableList(L, M);
+		l.makeImpl(_impl().getChildren());
+		return l;
+	}
 }

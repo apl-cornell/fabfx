@@ -1,11 +1,11 @@
 package fabfx.scene;
 
-import javafx.collections.ObservableList;
+import fabfx.collections.ObservableList;
 
 public class Group [label L, label M] extends Parent[L, M] {
 
 	private int{L}@{this.store$->} __dumb;
 	
-	public native ObservableList[L] getChildren(); 
+	public native ObservableList[L,M] getChildren(); 
 
 }
