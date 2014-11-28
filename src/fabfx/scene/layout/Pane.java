@@ -8,10 +8,6 @@ public class Pane extends Region {
 		super(L, M);
 	}
 
-	public Pane fabfx$scene$layout$Pane$() {
-		return this;
-	}
-
 	@Override
 	public javafx.scene.layout.Pane _impl() {
 		return (javafx.scene.layout.Pane) super._impl();
@@ -21,4 +17,9 @@ public class Pane extends Region {
 	protected void makeImpl() {
 		this._impl = new javafx.scene.layout.Pane();
 	}
+
+	public static boolean jif$Instanceof(Label l, Label e, Object o) {
+		return (o instanceof Pane) && Region.jif$Instanceof(l, e, o);
+	}
+
 }

@@ -20,10 +20,6 @@ public class ObservableList implements Wrapper {
 		this.jlist = jlist;
 	}
 
-	public ObservableList javafx$collections$ObservableList$() {
-		return this;
-	}
-
 	public boolean add(Label cL, Label cM, Node node) {
 		return jlist.add(node._impl());
 	}
@@ -33,9 +29,9 @@ public class ObservableList implements Wrapper {
 		return this.jlist;
 	}
 
-	public fabric.worker.Store $getStore() {
-		return fabric.worker.Worker.getWorker().getLocalStore();
-	}
+//	public fabric.worker.Store $getStore() {
+//		return fabric.worker.Worker.getWorker().getLocalStore();
+//	}
 
 	public ObservableList fetch() {
 		return this;

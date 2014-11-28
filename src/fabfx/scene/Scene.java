@@ -14,16 +14,9 @@ public class Scene implements Wrapper {
 		this.M = M;
 	}
 
-	public Scene fabfx$scene$Scene$(Label rL, Label rM, Parent root) {
+	public Scene(Label L, Label M, Label rL, Label rM, Parent root) {
+		this(L, M);
 		this.jscene = new javafx.scene.Scene((javafx.scene.Parent) root._impl());
-		return this;
-	}
-
-	public Scene fabfx$scene$Scene$(Label rL, Label rM, Parent root,
-			double width, double height) {
-		this.jscene = new javafx.scene.Scene(
-				(javafx.scene.Parent) root._impl(), width, height);
-		return this;
 	}
 
 	@Override

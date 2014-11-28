@@ -9,10 +9,6 @@ public class Group extends Parent {
 		super(L, M);
 	}
 
-	public Group fabfx$scene$Group$() {
-		return this;
-	}
-
 	public Group fetch() {
 		return this;
 	}

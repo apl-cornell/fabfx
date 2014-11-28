@@ -1,0 +1,22 @@
+package game1024;
+
+import fabfx.scene.*;
+import fabfx.scene.layout.StackPane;
+
+public class Tile [label L, label E] extends StackPane[L, E] {
+
+/*
+	public final Text label;
+	public final Rectangle background;
+*/
+	public int{L} row, column;
+
+	public Tile{L}(int{L} row, int{L} column) {
+		super();
+		atomic {
+			this.row = row;
+			this.column = column;
+		}
+	}
+
+}

@@ -14,4 +14,8 @@ public class Region extends Parent {
 		this._impl = new javafx.scene.layout.Region();
 	}
 
+	public static boolean jif$Instanceof(Label l, Label e, Object o) {
+		return (o instanceof Region) && Parent.jif$Instanceof(l, e, o);
+	}
+
 }

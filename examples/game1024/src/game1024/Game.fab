@@ -7,7 +7,7 @@ import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
 
 public class Game extends Application {
-
+	
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		atomic {
 			if (this.store$ actsfor User) {
