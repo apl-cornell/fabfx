@@ -6,9 +6,10 @@ import fabric.util.Int2DArray;
 public class GameModel [label L] {
 
 	/** The size of the square of tiles. */
-	private final int{L} size;
+	protected final int{L} size;
 	/** The tile values in the game. A blank tile is represented by zero. */
 	private Int2DArray[L]{L} tiles;
+	/** Used for randomness. */
 	private RandomGenerator[L]{L} random;
 
 	public GameModel{L} (int{L} size) throws (NegativeArraySizeException{L}) {
@@ -42,10 +43,21 @@ public class GameModel [label L] {
 	public int{L} size() {
 		return this.size;
 	}
-
+	/** Get the tile at location loc. */
+	public int{L} tile{L}(Location[L]{L} loc) {
+		return tiles.get(loc.row, loc.col);
+	}	
 	/** Get the tile at row r, column c. */
 	public int{L;r;c} tile(int r, int c) {
 		return tiles.get(r, c);
 	}
-
+	/** Get tile (x,y) in the coordinate system with (dx,dy) going to the right. */
+	private int{L} rtile{L} (int{L} x, int{L} y, int{L} dx, int{L} dy) {
+		return tile(new Location[L](x,y,dx,dy,this));
+	}
+	/** Set tile (x,y) in the coordinate system with (dx,dy) going to the right. */
+	private void setrtile{L} (int{L} x, int{L} y, int{L} dx, int{L} dy, int{L} v) {
+		Location[L] loc = new Location[L](x,y,dx,dy,this);
+		tiles.set(loc.row, loc.col, v);
+	}
 }

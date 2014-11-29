@@ -81,6 +81,8 @@ public class Game extends Application {
 					resetTilePosns();
 					setLabelsFromState();
 
+					outer.requestFocus();
+
 				} catch (NegativeArraySizeException e) {
 					// Impossible
 				}

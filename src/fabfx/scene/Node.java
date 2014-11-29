@@ -49,9 +49,13 @@ public abstract class Node implements Wrapper {
 	public final void setLayoutY(double value) {
 		this._impl().setLayoutY(value);
 	}
-	
-	public final void toBack(){
+
+	public final void toBack() {
 		this._impl().toBack();
+	}
+
+	public void requestFocus() {
+		this._impl().requestFocus();
 	}
 
 }

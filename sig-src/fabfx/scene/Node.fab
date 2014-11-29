@@ -11,5 +11,7 @@ public abstract class Node [label L, label M] extends java.lang.Object {
 	public final native void setStyle{L} (String{L} value);
 	public final native void setLayoutX{L} (double{L} value);
 	public final native void setLayoutY{L} (double{L} value);
-	public final native void toBack{L}();
+	public final native void toBack{L} ();
+	
+	public native void requestFocus{L} ();
 }
