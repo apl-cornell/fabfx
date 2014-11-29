@@ -42,7 +42,7 @@
 
   <target name="build"
           depends="fabfx"
-          description="Builds the Hello World example">
+          description="Builds the FabFX 1024 Game">
     <fabc dest="${game1024.home}/classes">
       <arg value="-sourcepath" /> <arg value="${game1024.home}/src" />
       <arg value="-cp"         /> <arg value="${env.JAVA_HOME}/jre/lib/ext/jfxrt.jar" />

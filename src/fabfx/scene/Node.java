@@ -38,4 +38,8 @@ public abstract class Node implements Wrapper {
 		return false;
 	}
 
+	public final void setStyle(String value) {
+		this._impl().setStyle(value);
+	}
+
 }

@@ -1,0 +1,46 @@
+package game1024;
+
+import fabric.util.RandomGenerator;
+import fabric.util.Int2DArray;
+
+public class GameModel [label L] {
+
+	/** The size of the square of tiles. */
+	private final int{L} size;
+	/** The tile values in the game. A blank tile is represented by zero. */
+	private Int2DArray[L]{L} tiles;
+	private RandomGenerator[L]{L} random;
+
+	public GameModel{L} (int{L} size) throws (NegativeArraySizeException{L}) {
+		this.size = size;
+		super();
+		tiles = new Int2DArray[L](size,size);
+		random = new RandomGenerator[L]();
+	}
+
+	public boolean{L} addNewTile{L} () {
+		int numFree = 0;
+		for (int r = 0; r < size; r++) {
+			for (int c = 0; c < size; c++) {
+				if (tiles.get(r,c) == 0) numFree++;
+			}
+		}
+		if (numFree == 0) 
+			return false;
+		int i = random.nextInt(numFree);
+		for (int r = 0; r < size; r++) {
+			for (int c = 0; c < size; c++) {
+				if (tiles.get(r, c) == 0 && i-- == 0) {
+					tiles.set(r, c, random.nextInt(10) == 0 ?  2 : 1); 
+					return true;
+				}
+			}
+		}
+		throw new Error("Can't get here");		
+	}
+
+	public int{L} size() {
+		return this.size;
+	}
+
+}

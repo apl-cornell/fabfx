@@ -7,25 +7,33 @@ import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
 
 public class Game extends Application {
-	
+
+	static double{User->;User<-} tileSize = 120.0;
+	static double{User->;User<-} gutter;
+
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		atomic {
+			final label l = new label {User->;User<-};
 			if (this.store$ actsfor User) {
-				final label l = new label {User->;User<-};
-				final Pane[l,l] content = new Pane[l,l]();
-				final Group[l,l] outer = new Group[l,l]();
-				final Scene[l,l] scene = new Scene[l,l](l,l,outer);
-				if (outer.store$ actsfor User) {
+				try {
+					GameModel[l] model = new GameModel[l]@store$(4);
+					model.addNewTile();
+					gutter = tileSize / 10;
+
+					final Pane[l,l] content = new Pane[l,l]();
+					final Group[l,l] outer = new Group[l,l]();
+					final Scene[l,l] scene = new Scene[l,l](l,l,outer);
+
 					primaryStage.setScene(l,l,scene);
-					final ObservableList outer_ = outer.getChildren();
-					if (outer_.store$ actsfor User) {
-						outer_.add(l,l,content);
-						primaryStage.setTitle("1024");
-						primaryStage.show();
-						return;
-					}
-				} 
-				primaryStage.setTitle("Security alert!");
+					outer.getChildren().add(l,l,content);
+					content.setPrefHeight(4 * tileSize + (4 + 1) * gutter);
+					content.setPrefWidth(4 * tileSize + (4 + 1) * gutter);
+					content.setStyle("-fx-background-color: #999999");
+
+				} catch (NegativeArraySizeException e) {
+					// Impossible
+				}
+				primaryStage.setTitle("1024");
 				primaryStage.show();
 			}		
 		}

@@ -9,5 +9,9 @@ public class Region [label L, label M] extends Parent[L,M] {
 	public Region () {
 		super();
 	}
+	
+	public native void setPrefWidth{L}(double{L} value);
+	
+    public native void setPrefHeight{L}(double{L} value);
 
 }
