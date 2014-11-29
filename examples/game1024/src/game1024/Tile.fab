@@ -3,20 +3,25 @@ package game1024;
 import fabfx.scene.*;
 import fabfx.scene.layout.StackPane;
 
-public class Tile [label L, label E] extends StackPane[L, E] {
+public class Tile extends StackPane[{User->;User<-}, {User->;User<-}] {
 
 /*
 	public final Text label;
 	public final Rectangle background;
 */
-	public int{L} row, column;
+	public int{User->;User<-} row, column;
 
-	public Tile{L}(int{L} row, int{L} column) {
+	public Tile{User->;User<-} (int{User->;User<-} row, int{User->;User<-} column) {
 		super();
 		atomic {
 			this.row = row;
 			this.column = column;
 		}
+	}
+
+	public void setPosn{User->;User<-} () {
+		setLayoutX(Game.gutter + column * (Game.tileSize + Game.gutter));
+		setLayoutY(Game.gutter + row * (Game.tileSize + Game.gutter));
 	}
 
 }

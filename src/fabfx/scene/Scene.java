@@ -16,7 +16,7 @@ public class Scene implements Wrapper {
 
 	public Scene(Label L, Label M, Label rL, Label rM, Parent root) {
 		this(L, M);
-		this.jscene = new javafx.scene.Scene((javafx.scene.Parent) root._impl());
+		this.jscene = new javafx.scene.Scene(root._impl());
 	}
 
 	@Override

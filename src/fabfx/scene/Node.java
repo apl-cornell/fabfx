@@ -42,4 +42,16 @@ public abstract class Node implements Wrapper {
 		this._impl().setStyle(value);
 	}
 
+	public final void setLayoutX(double value) {
+		this._impl().setLayoutX(value);
+	}
+
+	public final void setLayoutY(double value) {
+		this._impl().setLayoutY(value);
+	}
+	
+	public final void toBack(){
+		this._impl().toBack();
+	}
+
 }

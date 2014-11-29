@@ -1,5 +1,6 @@
 package fabfx.scene.layout;
 
+import fabfx.collections.ObservableList;
 import fabric.lang.security.Label;
 
 public class Pane extends Region {
@@ -20,6 +21,12 @@ public class Pane extends Region {
 
 	public static boolean jif$Instanceof(Label l, Label e, Object o) {
 		return (o instanceof Pane) && Region.jif$Instanceof(l, e, o);
+	}
+
+	public ObservableList getChildren() {
+		ObservableList l = new ObservableList(L, M);
+		l.makeImpl(_impl().getChildren());
+		return l;
 	}
 
 }

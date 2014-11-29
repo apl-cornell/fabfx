@@ -5,30 +5,51 @@ import fabfx.stage.Stage;
 import fabfx.scene.*;
 import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
+import fabric.util.java.Object2DArray;
 
 public class Game extends Application {
 
 	static double{User->;User<-} tileSize = 120.0;
 	static double{User->;User<-} gutter;
 
+	// The model of the game.
+	private GameModel[{User->;User<-}]{User->;User<-} model;
+	// The nodes corresponding to each of the tiles of the game
+	private Object2DArray[{User->;User<-}]{User->;User<-} tiles;
+
 	public void run{User->;User<-} (Stage{User->;User<-} primaryStage) {
 		atomic {
 			final label l = new label {User->;User<-};
 			if (this.store$ actsfor User) {
 				try {
-					GameModel[l] model = new GameModel[l]@store$(4);
+					model = new GameModel[l]@store$(4);
 					model.addNewTile();
 					gutter = tileSize / 10;
+					int s = model.size();
 
 					final Pane[l,l] content = new Pane[l,l]();
 					final Group[l,l] outer = new Group[l,l]();
-					final Scene[l,l] scene = new Scene[l,l](l,l,outer);
+					final Scene[l,l] scene = new Scene[l,l](l, l, outer);
 
 					primaryStage.setScene(l,l,scene);
 					outer.getChildren().add(l,l,content);
-					content.setPrefHeight(4 * tileSize + (4 + 1) * gutter);
-					content.setPrefWidth(4 * tileSize + (4 + 1) * gutter);
+					content.setPrefHeight(s * tileSize + (s + 1) * gutter);
+					content.setPrefWidth(s * tileSize + (s + 1) * gutter);
 					content.setStyle("-fx-background-color: #999999");
+
+					tiles = new Object2DArray[l](model.size(), model.size());
+					for (int i = 0; i < model.size(); i++) {
+						for (int j = 0; j < model.size(); j++) {
+							Tile tile = new Tile(i,j); // extra blank tile
+							content.getChildren().add(l, l, (Tile) tile);
+							tile.setPosn();
+							tile.toBack();
+
+							tiles.set(i, j, new Tile(i, j));
+							content.getChildren().add(l, l, 
+									(Tile) tiles.get(i, j)); // j,i
+						}			
+					}
 
 				} catch (NegativeArraySizeException e) {
 					// Impossible

@@ -29,10 +29,6 @@ public class ObservableList implements Wrapper {
 		return this.jlist;
 	}
 
-//	public fabric.worker.Store $getStore() {
-//		return fabric.worker.Worker.getWorker().getLocalStore();
-//	}
-
 	public ObservableList fetch() {
 		return this;
 	}

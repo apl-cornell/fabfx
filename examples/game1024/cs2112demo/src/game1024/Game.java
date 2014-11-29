@@ -96,8 +96,8 @@ public class Game extends Application {
 				tile.setPosn();
 				tile.toBack();
 				
-				tile = tiles[i][j] = new Tile(i, j);
-				content.getChildren().add(tile); // j,i
+				tiles[i][j] = new Tile(i, j);
+				content.getChildren().add(tiles[i][j]); // j,i
 			}			
 		}
 		resetTilePosns();
