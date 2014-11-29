@@ -43,4 +43,9 @@ public class GameModel [label L] {
 		return this.size;
 	}
 
+	/** Get the tile at row r, column c. */
+	public int{L;r;c} tile(int r, int c) {
+		return tiles.get(r, c);
+	}
+
 }

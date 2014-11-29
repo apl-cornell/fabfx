@@ -5,12 +5,23 @@ import fabfx.stage.Stage;
 import fabfx.scene.*;
 import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
+import fabfx.scene.text.Text;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import fabric.util.java.Object2DArray;
 
 public class Game extends Application {
 
+	static Color{User->;User<-} numColor;
+	static Color{User->;User<-} tileColor;
+	static Color{User->;User<-} sepColor;
+	static Font{User->;User<-} numFont;
+	static Font{User->;User<-} smallNumFont;
 	static double{User->;User<-} tileSize = 120.0;
 	static double{User->;User<-} gutter;
+	static Color{User->;User<-} native []{User->;User<-} colors;
+
 
 	// The model of the game.
 	private GameModel[{User->;User<-}]{User->;User<-} model;
@@ -26,6 +37,22 @@ public class Game extends Application {
 					model.addNewTile();
 					gutter = tileSize / 10;
 					int s = model.size();
+					numColor = new Color(0.4, 0.4, 0.4, 1.0);
+					tileColor = new Color(0.8, 0.8, 0.8, 1.0);
+					sepColor = new Color(0.6, 0.6, 0.6, 1.0);
+					colors = new Color native []{ 
+						tileColor, new Color(0.8, 0.8, 0.75, 1.0),
+						new Color(0.8, 0.75, 0.75, 1.0), new Color(0.85, 0.75, 0.7, 1.0),
+						new Color(0.8, 0.8, 0.7, 1.0), new Color(0.8, 0.7, 0.7, 1.0),
+						new Color(0.8, 0.7, 0.6, 1.0), new Color(0.8, 0.6, 0.7, 1.0),
+						new Color(0.7, 0.8, 0.7, 1.0), new Color(0.7, 0.8, 0.6, 1.0),
+						new Color(0.6, 0.7, 0.8, 1.0), new Color(0.6, 0.6, 0.8, 1.0),
+						new Color(0.8, 0.8, 0.5, 1.0), new Color(0.8, 0.7, 0.5, 1.0),
+						new Color(0.8, 0.6, 0.5, 1.0), new Color(0.8, 0.5, 0.7, 1.0),
+						new Color(0.8, 0.5, 0.5, 1.0)
+					};
+					numFont = Font.font("Helvetica-Bold", FontWeight.BOLD, 64);
+					smallNumFont = Font.font("Helvetica-Bold", FontWeight.BOLD, 32);
 
 					final Pane[l,l] content = new Pane[l,l]();
 					final Group[l,l] outer = new Group[l,l]();
@@ -51,12 +78,46 @@ public class Game extends Application {
 						}			
 					}
 
+					resetTilePosns();
+					setLabelsFromState();
+
 				} catch (NegativeArraySizeException e) {
 					// Impossible
 				}
 				primaryStage.setTitle("1024");
 				primaryStage.show();
 			}		
+		}
+	}
+
+	private void resetTilePosns{User->;User<-}() {
+		for (int i = 0; i < model.size(); i++) {
+			for (int j = 0; j < model.size(); j++) {
+				((Tile) tiles.get(i,j)).setPosn();
+			}
+		}
+	}
+
+	private void setLabelsFromState{User->;User<-}() {
+		for (int r = 0; r < model.size(); r++) {
+			for (int c = 0; c < model.size(); c++) {
+				int v = model.tile(r, c);
+				Text[{User->;User<-},{User->;User<-}] t = ((Tile) tiles.get(r, c)).text;
+				if (v == 0) {
+					t.setText("");
+				} else {
+					t.setText(String.valueOf(v));
+					t.setFont(v >= 100 ? smallNumFont : numFont);
+				}
+				int j = 0;
+				while (v != 0) {
+					v = v / 2;
+					j++;
+				}
+				if (j >= colors.length)
+					j = colors.length - 1;
+				((Tile) tiles.get(r, c)).background.setFill(colors[j]);
+			}
 		}
 	}
 
