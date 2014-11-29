@@ -3,6 +3,9 @@ package game1024;
 import fabric.util.RandomGenerator;
 import fabric.util.Int2DArray;
 
+import fabricated.util.List;
+import fabricated.util.ArrayList;
+
 public class GameModel [label L] {
 
 	/** The size of the square of tiles. */
@@ -39,6 +42,64 @@ public class GameModel [label L] {
 		}
 		throw new Error("Can't get here");		
 	}
+
+	/** Try to move the puzzle in the specified direction.
+	 *  Return a list of moves performed. An empty list returned
+	 *  means nothing could move.
+	 */
+	public List[L]{L} slideTiles{L} (int{L} dx, int{L} dy) {
+		List[L] ret = new ArrayList[L]();
+		// only one merge can happen at a given location per turn.
+		// fixed keeps track of the locations that have already merged.
+		/*
+		boolean[][] fixed = new boolean[size][size];
+		for (int x = size - 2; x >= 0; x--) {
+			for (int y = 0; y < size; y++) {
+				int v = rtile(x, y, dx, dy);
+				if (v != 0) {					
+					int x1 = x + 1;
+					assert x1 < size;
+					while (x1 < size && rtile(x1, y, dx, dy) == 0)
+						x1++;
+					if (x1 == size) {
+						// move all the way to the edge
+						setrtile(x, y, dx, dy, 0);
+						setrtile(size-1, y, dx, dy, v);
+						ret.add(new Move(new Location(x, y, dx, dy),
+							new Location(size-1, y, dx, dy), false));
+					} else if (rtile(x1, y, dx, dy) == v &&
+						!fixed[x1][y]) {
+						// slide and merge
+						setrtile(x, y, dx, dy, 0);
+						setrtile(x1, y, dx, dy, v * 2);
+						fixed[x1][y] = true; // can't merge again
+						ret.add(new Move(new Location(x,y,dx,dy),
+							new Location(x1, y, dx, dy), true));
+					} else if (x != x1 - 1) {
+						// slide up to the next tile but don't merge
+						setrtile(x, y, dx, dy, 0);
+						setrtile(x1 - 1, y, dx, dy, v);
+						ret.add(new Move(new Location(x, y, dx, dy),
+							new Location(x1-1, y, dx, dy), false));
+					}
+				}
+			}
+		}
+		*/
+		return ret;
+	}
+
+	/** Try to do a player move in direction (dx, dy), returning a
+	 * list of tiles moves that resulted, or an empty list if the move
+	 * is not legal.
+	 */
+	/*
+	public List<Move> doMove(int dx, int dy) {
+		List<GameModel.Move> moves = slideTiles(dx, dy);
+		if (!moves.isEmpty()) addNewTile();
+		return moves;
+	}
+	*/
 
 	public int{L} size() {
 		return this.size;

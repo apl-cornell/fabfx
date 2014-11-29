@@ -1,0 +1,11 @@
+package fabricated.util;
+
+public interface List[label L] {
+
+	public java.lang.Object{i;L} get(int i);
+	
+	public boolean{L} add(java.lang.Object{L} o);
+	
+	public boolean{L} isEmpty();
+	
+}
