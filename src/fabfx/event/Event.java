@@ -1,5 +1,42 @@
 package fabfx.event;
 
-public class Event extends EventBase{
-    public Event() {super();}
+import javafx.event.EventType;
+import fabric.lang.security.Label;
+import fabric.lang.security.LabelUtil;
+
+public class Event {
+
+	final Label M;
+
+	javafx.event.Event _impl;
+
+	public Event(Label M) {
+		super();
+		this.M = M;
+	}
+
+	public javafx.event.Event _impl() {
+		return this._impl;
+	}
+
+	protected void makeImpl(javafx.event.Event e) {
+		this._impl = e;
+	}
+
+	public static boolean jif$Instanceof(Label M, Object o) {
+		if (o instanceof Event) {
+			Event that = (Event) o;
+			return LabelUtil._Impl.equivalentTo(that.M, M);
+		}
+		return false;
+	}
+
+	public EventType getEventType() {
+		return _impl().getEventType();
+	}
+
+	public void consume() {
+		_impl().consume();
+	}
+
 }

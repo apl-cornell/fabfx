@@ -2,6 +2,6 @@ package fabfx.event;
 
 public interface EventHandler[label M] {
 
-	public void handle {M} (Event{M} e);
+	public void handle{M} (Event[M]{M} e);
 
 }
