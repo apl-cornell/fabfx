@@ -15,25 +15,30 @@ public class ArrayList implements List {
 		this._impl = new java.util.ArrayList<>();
 	}
 
-	protected java.util.ArrayList<Object> _impl;
+	protected java.util.ArrayList<fabric.lang.Object> _impl;
 
-	public java.util.ArrayList<Object> _impl() {
+	public java.util.ArrayList<fabric.lang.Object> _impl() {
 		return this._impl;
 	}
 
 	@Override
-	public Object get(int i) {
+	public fabric.lang.Object get(int i) {
 		return _impl().get(i);
 	}
 
 	@Override
-	public boolean add(Object o) {
+	public boolean add(fabric.lang.Object o) {
 		return _impl().add(o);
 	}
 
 	@Override
 	public boolean isEmpty() {
 		return _impl().isEmpty();
+	}
+
+	@Override
+	public int size() {
+		return _impl().size();
 	}
 
 }

@@ -2,10 +2,12 @@ package fabricated.util;
 
 public interface List {
 
-	public Object get(int i);
+	public fabric.lang.Object get(int i);
 
-	public boolean add(Object o);
+	public boolean add(fabric.lang.Object o);
 
 	public boolean isEmpty();
+	
+	public int size();
 
 }
