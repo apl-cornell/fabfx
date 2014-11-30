@@ -1,13 +1,7 @@
 package fabricated.util;
 
-public interface List {
+public interface List extends Collection {
 
 	public fabric.lang.Object get(int i);
-
-	public boolean add(fabric.lang.Object o);
-
-	public boolean isEmpty();
-	
-	public int size();
 
 }
