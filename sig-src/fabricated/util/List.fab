@@ -1,13 +1,9 @@
 package fabricated.util;
 
-public interface List[label L] {
+public class List[label L] extends Collection[L] {
+	private static int __JIF_SIG_OF_JAVA_CLASS$20030619 = 0;
+	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 =	0;
 
-	public fabric.lang.Object{i;L} get(int i);
-	
-	public boolean{L} add(fabric.lang.Object{L} o);
-	
-	public boolean{L} isEmpty();
-	
-	public int{L} size();
-	
+	public native fabric.lang.Object{i;L} get(int i);
+		
 }

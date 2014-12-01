@@ -89,7 +89,7 @@ public class Game extends Application {
 				}
 				primaryStage.setTitle("1024");
 				primaryStage.show();
-			}		
+			}
 		}
 	}
 
