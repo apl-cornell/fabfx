@@ -1,5 +1,6 @@
 package fabfx.scene.shape;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.scene.paint.Paint;
 import fabfx.scene.Node;
 import fabric.lang.security.Label;
@@ -25,6 +26,14 @@ public abstract class Shape extends Node {
 
 	public final void setStroke(Paint value) {
 		_impl().setStroke(value);
+	}
+	
+	public final Paint getFill() {
+		return _impl().getFill();
+	}
+	
+	public final ObjectProperty fillProperty() {
+		return _impl().fillProperty();
 	}
 
 }

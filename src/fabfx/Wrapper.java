@@ -1,5 +1,5 @@
 package fabfx;
 
 public interface Wrapper {
-    public Object _impl();
+	public Object _impl();
 }

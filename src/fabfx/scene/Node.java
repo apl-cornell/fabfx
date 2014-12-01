@@ -1,5 +1,6 @@
 package fabfx.scene;
 
+import javafx.beans.property.DoubleProperty;
 import fabfx.Wrapper;
 import fabric.lang.security.Label;
 import fabric.lang.security.LabelUtil;
@@ -48,6 +49,22 @@ public abstract class Node implements Wrapper {
 
 	public final void setLayoutY(double value) {
 		this._impl().setLayoutY(value);
+	}
+
+	public final double getLayoutX() {
+		return this._impl().getLayoutX();
+	}
+
+	public final double getLayoutY() {
+		return this._impl().getLayoutY();
+	}
+
+	public final DoubleProperty layoutXProperty() {
+		return _impl().layoutXProperty();
+	}
+
+	public final DoubleProperty layoutYProperty() {
+		return _impl().layoutYProperty();
 	}
 
 	public final void toBack() {
