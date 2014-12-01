@@ -115,4 +115,5 @@ public class GameModel [label L] {
 		Location[L] loc = new Location[L](x,y,dx,dy,this);
 		tiles.set(loc.row, loc.col, v);
 	}
+	
 }
