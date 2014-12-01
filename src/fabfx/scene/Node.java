@@ -54,6 +54,10 @@ public abstract class Node implements Wrapper {
 		this._impl().toBack();
 	}
 
+	public final void toFront() {
+		this._impl().toFront();
+	}
+
 	public void requestFocus() {
 		this._impl().requestFocus();
 	}

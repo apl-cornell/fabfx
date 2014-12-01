@@ -10,6 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import fabric.util.java.Object2DArray;
+import fabricated.util.List;
+import fabricated.util.ArrayList;
 
 public class Game extends Application {
 
@@ -21,7 +23,6 @@ public class Game extends Application {
 	static double{User->;User<-} tileSize = 120.0;
 	static double{User->;User<-} gutter;
 	static Color{User->;User<-} native []{User->;User<-} colors;
-
 
 	// The model of the game.
 	private GameModel[{User->;User<-}]{User->;User<-} model;
@@ -121,6 +122,29 @@ public class Game extends Application {
 				((Tile) tiles.get(r, c)).background.setFill(colors[j]);
 			}
 		}
+	}
+
+	private void doMove{User->;User<-} (int{User->;User<-} dx, int{User->;User<-} dy) {
+		final label l = new label {User->;User<-};
+		List[l] moves = model.doMove(dx, dy);
+		List[l] move_anims = new ArrayList[l]();
+		List[l] flash_anims = new ArrayList[l]();
+		for (int i = 0; i < moves.size(); ++i) {
+			Move[l] m = (Move[l]) moves.get(i);
+			Tile from_tile = (Tile) tiles.get(m.fromLoc.row, m.fromLoc.col);
+			Tile to_tile = (Tile) tiles.get(m.toLoc.row, m.toLoc.col);
+			from_tile.toFront();
+		// 	move_anims.add(new KeyValue(from_tile.layoutXProperty(),
+		// 		to_tile.getLayoutX()));
+		// 	move_anims.add(new KeyValue(from_tile.layoutYProperty(),
+		// 		to_tile.getLayoutY()));
+		// 	move_anims.add(new KeyValue(from_tile.background.fillProperty(),
+		// 		from_tile.background.getFill()));
+		// 	if (m.merge)
+		// 		flash_anims.add(new KeyValue(from_tile.background.fillProperty(),
+		// 			((Color) (from_tile.background.getFill())).interpolate(Color.WHITE, 0.3)));
+		}
+
 	}
 
 }
