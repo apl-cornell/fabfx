@@ -6,6 +6,6 @@ public interface WritableValue[label L] {
 
 	public java.lang.Object{L} getValue();
 	
-	public void setValue(java.lang.Object{L} value);
+	public void setValue{L} (java.lang.Object{L} value);
 	
 }
