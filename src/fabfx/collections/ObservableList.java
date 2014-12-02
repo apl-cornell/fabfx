@@ -26,7 +26,7 @@ public class ObservableList implements Wrapper {
 	}
 
 	public boolean add(Label cL, Label cM, KeyFrame keyValue) {
-		return jlist.add(keyValue);
+		return jlist.add(keyValue._impl());
 	}
 
 	@Override
@@ -34,7 +34,4 @@ public class ObservableList implements Wrapper {
 		return this.jlist;
 	}
 
-	public ObservableList fetch() {
-		return this;
-	}
 }

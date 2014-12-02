@@ -15,7 +15,18 @@ public class InputEvent extends Event {
 	}
 
 	public static boolean jif$Instanceof(Label m, Object o) {
-		return (o instanceof InputEvent) && Event.jif$Instanceof(m, o);
+		return Event.jif$Instanceof(m, o)
+				&& ((Event) o)._impl() instanceof javafx.scene.input.InputEvent;
+	}
+
+	public static InputEvent jif$cast$fabfx_scene_input_InputEvent(Label M,
+			Object o) {
+		if (o == null)
+			return null;
+		if (jif$Instanceof(M, o))
+			return new InputEvent(M,
+					(javafx.scene.input.InputEvent) ((Event) o)._impl());
+		throw new ClassCastException();
 	}
 
 }

@@ -4,6 +4,9 @@ import javafx.event.EventType;
 import fabric.lang.security.Label;
 import fabric.lang.security.LabelUtil;
 
+/**
+ * A base wrapper of {@link javafx.event.Event}.
+ */
 public class Event {
 
 	final Label M;
@@ -25,6 +28,14 @@ public class Event {
 			return LabelUtil._Impl.equivalentTo(that.M, M);
 		}
 		return false;
+	}
+
+	public static Event jif$cast$fabfx_event_Event(Label M, Object o) {
+		if (o == null)
+			return null;
+		if (jif$Instanceof(M, o))
+			return (Event) o;
+		throw new ClassCastException();
 	}
 
 	public EventType getEventType() {

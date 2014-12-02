@@ -5,8 +5,6 @@ import fabfx.event.EventHandler;
 import fabfx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
 
-import fabric.runtime.Runtime;
-
 public class ArrowHandler extends EventHandler[{User->;User<-}] {
 
 	protected Game{User->;User<-} game;
@@ -21,14 +19,6 @@ public class ArrowHandler extends EventHandler[{User->;User<-}] {
 				KeyEvent[{User->;User<-}] ev = (KeyEvent[{User->;User<-}]) ev_;
 				if (ev.getEventType() == KeyEvent.KEY_PRESSED) {
 					KeyCode key = ev.getCode();
-
-
-					final Runtime[User] runtime = Runtime[User].getRuntime();
-					if (runtime.store$ actsfor User) {
-						runtime.out().println("AHHHH");
-					}
-					
-
 					if (key == KeyCode.LEFT) {
 						game.doMove(-1, 0);
 					} else if (key == KeyCode.UP) {
@@ -37,11 +27,11 @@ public class ArrowHandler extends EventHandler[{User->;User<-}] {
 						game.doMove(1, 0);
 					} else {
 						game.doMove(0, 1);
-					}
+					}					
 				}
+				ev_.consume();
 			}
-			ev_.consume();
 		}
 	}
-
+	
 }
