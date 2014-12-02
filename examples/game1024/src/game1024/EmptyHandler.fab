@@ -1,0 +1,12 @@
+package game1024;
+
+import fabfx.event.EventHandler;
+import fabfx.event.Event;
+
+public class EmptyHandler [label M] extends EventHandler[M] {
+
+	public void handle{M} (Event[M]{M} e) {
+		
+	}
+
+}

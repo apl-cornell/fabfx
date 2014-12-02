@@ -6,11 +6,14 @@ import fabfx.scene.*;
 import fabfx.scene.layout.*;
 import fabfx.collections.ObservableList;
 import fabfx.scene.text.Text;
+import fabfx.event.EventHandler;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.animation.KeyValue;
-import javafx.animation.KeyFrame;
+import fabfx.animation.KeyFrame;
+import fabfx.animation.Timeline;
+import javafx.util.Duration;
 import fabric.util.java.Object2DArray;
 import fabricated.util.List;
 import fabricated.util.ArrayList;
@@ -85,6 +88,7 @@ public class Game extends Application {
 					setLabelsFromState();
 
 					outer.requestFocus();
+					outer.setOnKeyPressed(new ArrowHandler(this));
 
 				} catch (NegativeArraySizeException e) {
 					// Impossible
@@ -95,7 +99,7 @@ public class Game extends Application {
 		}
 	}
 
-	private void resetTilePosns{User->;User<-}() {
+	protected void resetTilePosns{User->;User<-}() {
 		for (int i = 0; i < model.size(); i++) {
 			for (int j = 0; j < model.size(); j++) {
 				((Tile) tiles.get(i,j)).setPosn();
@@ -103,7 +107,7 @@ public class Game extends Application {
 		}
 	}
 
-	private void setLabelsFromState{User->;User<-}() {
+	protected void setLabelsFromState{User->;User<-}() {
 		for (int r = 0; r < model.size(); r++) {
 			for (int c = 0; c < model.size(); c++) {
 				int v = model.tile(r, c);
@@ -126,7 +130,7 @@ public class Game extends Application {
 		}
 	}
 
-	private void doMove{User->;User<-} (int{User->;User<-} dx, int{User->;User<-} dy) {
+	protected void doMove{User->;User<-} (int{User->;User<-} dx, int{User->;User<-} dy) {
 		final label l = new label {User->;User<-};
 		List[l] moves = model.doMove(dx, dy);
 		java.util.List[l] move_anims = new java.util.ArrayList[l]();
@@ -154,6 +158,13 @@ public class Game extends Application {
 			}
 		}
 
-		
+		Timeline timeline = new Timeline(60);
+		EventHandler[{User->;User<-}] h1 = new EmptyHandler();
+		timeline.getKeyFrames().add(l,l,
+			new KeyFrame(Duration.seconds(0.2), "end_slide", h1, move_anims));
+		EventHandler[{User->;User<-}] h2 = new EndMoveHandler(this);
+		timeline.getKeyFrames().add(l,l,
+			new KeyFrame(Duration.seconds(0.3), "end", h2, flash_anims));
+		timeline.play();
 	}
 }

@@ -5,21 +5,27 @@ import fabfx.event.EventHandler;
 import fabfx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
 
-public class ArrowHandler[label M] implements EventHandler[M] {
+public class ArrowHandler extends EventHandler[{User->;User<-}] {
 
-	public void handle{M} (Event[M]{M} ev_) {
-		if (ev_ instanceof KeyEvent[M]) {
-			KeyEvent[M] ev = (KeyEvent[M]) ev_;
+	protected Game{User->;User<-} game;
+	
+	public ArrowHandler{User->;User<-} (Game{User->;User<-} g) {
+		this.game = g;
+	}
+
+	public void handle{User->;User<-} (Event[{User->;User<-}]{User->;User<-} ev_) {
+		if (ev_ instanceof KeyEvent[{User->;User<-}]) {
+			KeyEvent[{User->;User<-}] ev = (KeyEvent[{User->;User<-}]) ev_;
 			if (ev.getEventType() == KeyEvent.KEY_PRESSED) {
 				KeyCode key = ev.getCode();
 				if (key == KeyCode.LEFT) {
-					// doMove(-1, 0); break;
+					game.doMove(-1, 0);
 				} else if (key == KeyCode.UP) {
-					// doMove(0, -1); break;
+					game.doMove(0, -1);
 				} else if (key == KeyCode.RIGHT) {
-					// case RIGHT: doMove(1, 0); break;
+					game.doMove(1, 0);
 				} else {
-					// case DOWN: doMove(0, 1); break;
+					game.doMove(0, 1);
 				}
 			}
 		}

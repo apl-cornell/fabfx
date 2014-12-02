@@ -1,6 +1,7 @@
 package fabfx.collections;
 
 import fabfx.Wrapper;
+import fabfx.animation.KeyFrame;
 import fabfx.scene.Node;
 import fabric.lang.security.Label;
 
@@ -22,6 +23,10 @@ public class ObservableList implements Wrapper {
 
 	public boolean add(Label cL, Label cM, Node node) {
 		return jlist.add(node._impl());
+	}
+
+	public boolean add(Label cL, Label cM, KeyFrame keyValue) {
+		return jlist.add(keyValue);
 	}
 
 	@Override

@@ -5,8 +5,8 @@ import fabric.lang.security.Label;
 
 public class InputEvent extends Event {
 
-	public InputEvent(Label m) {
-		super(m);
+	public InputEvent(Label m, javafx.scene.input.InputEvent e) {
+		super(m, e);
 	}
 
 	@Override

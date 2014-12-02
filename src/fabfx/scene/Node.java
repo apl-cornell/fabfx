@@ -2,6 +2,7 @@ package fabfx.scene;
 
 import javafx.beans.property.DoubleProperty;
 import fabfx.Wrapper;
+import fabfx.event.EventHandler;
 import fabric.lang.security.Label;
 import fabric.lang.security.LabelUtil;
 
@@ -77,6 +78,10 @@ public abstract class Node implements Wrapper {
 
 	public void requestFocus() {
 		this._impl().requestFocus();
+	}
+
+	public void setOnKeyPressed(EventHandler handler) {
+		this._impl().setOnKeyPressed(handler._impl());
 	}
 
 }

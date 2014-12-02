@@ -10,17 +10,13 @@ public class Event {
 
 	javafx.event.Event _impl;
 
-	public Event(Label M) {
-		super();
+	public Event(Label M, javafx.event.Event e) {
 		this.M = M;
+		this._impl = e;
 	}
 
 	public javafx.event.Event _impl() {
 		return this._impl;
-	}
-
-	protected void makeImpl(javafx.event.Event e) {
-		this._impl = e;
 	}
 
 	public static boolean jif$Instanceof(Label M, Object o) {

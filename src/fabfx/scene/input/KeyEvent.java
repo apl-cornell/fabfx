@@ -6,8 +6,8 @@ import fabric.lang.security.Label;
 
 public class KeyEvent extends InputEvent {
 
-	public KeyEvent(Label M) {
-		super(M);
+	public KeyEvent(Label M, javafx.scene.input.KeyEvent e) {
+		super(M, e);
 	}
 
 	@Override

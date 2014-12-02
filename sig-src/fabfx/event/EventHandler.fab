@@ -1,7 +1,9 @@
 package fabfx.event;
 
-public interface EventHandler[label M] {
+public abstract class EventHandler[label M] extends java.lang.Object {
+	private static int __JIF_SIG_OF_JAVA_CLASS$20030619 = 0;
+	private static int __JIF_PARAMS_RUNTIME_REPRESENTED$20051007 = 0;
 
-	public void handle{M} (Event[M]{M} e);
+	public abstract void handle{M} (Event[M]{M} e);
 
 }
