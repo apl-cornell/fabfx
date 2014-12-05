@@ -101,8 +101,9 @@ public class CalendarApp extends Application {
 //					}
 //				});
 
-//		Scene scene = new Scene(agenda);
-//		calendarStage.setScene(scene);
+		CalendarView calendarView = new CalendarView();
+		Scene scene = new Scene(calendarView);
+		calendarStage.setScene(scene);
 	}
 
 	public static void main(String[] args) {
