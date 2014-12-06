@@ -19,6 +19,8 @@ public class CalendarView extends Control {
 
 		setSkin(new CalendarViewSkin(this));
 
+		calculateSizes();
+
 		// setup the CSS
 		// the -fx-skin attribute in the CSS sets which Skin class is used
 		this.getStyleClass().add(this.getClass().getSimpleName());
@@ -41,11 +43,6 @@ public class CalendarView extends Control {
 		weekScrollPane.setFitToWidth(true);
 		weekScrollPane.setPannable(false);
 		// panning would conflict with creating a new appointment
-		// bind to the scrollpane's viewport
-		weekScrollPane.viewportBoundsProperty().addListener(observable -> {
-			calculateSizes();
-			// nowUpdateRunnable.run();
-			});
 
 		WeekPane weekPane = new WeekPane(this);
 		weekScrollPane.setContent(weekPane);
@@ -60,22 +57,26 @@ public class CalendarView extends Control {
 				.toExternalForm();
 	}
 
-	protected DoubleProperty textHeightProperty = new SimpleDoubleProperty(0);
-	protected DoubleProperty hourHeightProperty = new SimpleDoubleProperty(0);
-	protected DoubleProperty timeWidthProperty = new SimpleDoubleProperty(0);
+	protected double textHeight;
+	protected double hourHeight;
+	protected double timeWhitespace;
+	protected double timeWidth;
 	protected DoubleProperty dayWidthProperty = new SimpleDoubleProperty(0);
-	protected DoubleProperty dayHeightProperty = new SimpleDoubleProperty(0);
-	protected double timeColumnWhitespace;
+	protected double dayHeight;
 
+	/**
+	 * Initializes the calculation of widget sizes. The method should called
+	 * before children nodes are constructed because the construction of
+	 * children nodes depend on knowing these sizes.
+	 */
 	protected void calculateSizes() {
-		timeColumnWhitespace = 10;
-		textHeightProperty.set(new Text("X").getBoundsInParent().getHeight());
-		hourHeightProperty.set((2 * textHeightProperty.get()) + 10);
-		// 10 is padding
-		timeWidthProperty.set(new Text("88:88").getBoundsInParent().getWidth()
-				+ timeColumnWhitespace);
-		dayWidthProperty.bind((widthProperty().subtract(timeWidthProperty)
-				.divide(7)));
-		dayHeightProperty.set(hourHeightProperty.get() * 24);
+		textHeight = new Text("X").getBoundsInParent().getHeight();
+		hourHeight = textHeight * 2 + 10; // 10 is for padding
+		timeWhitespace = 10;
+		timeWidth = new Text("88:88").getBoundsInParent().getWidth()
+				+ timeWhitespace;
+		dayWidthProperty.bind(widthProperty().subtract(timeWidth).divide(7));
+		dayHeight = hourHeight * 24;
 	}
+
 }

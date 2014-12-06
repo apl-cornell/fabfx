@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
@@ -41,12 +40,11 @@ class WeekPane extends Pane {
 			lDayPane.setId("dayPane" + i);
 			lDayPane.layoutXProperty().bind(
 					this.calendarView.dayWidthProperty.multiply(i).add(
-							this.calendarView.timeWidthProperty));
+							this.calendarView.timeWidth));
 			lDayPane.layoutYProperty().set(0.0);
 			lDayPane.prefWidthProperty().bind(
 					this.calendarView.dayWidthProperty);
-			lDayPane.prefHeightProperty().bind(
-					this.calendarView.dayHeightProperty);
+			lDayPane.prefHeightProperty().set(this.calendarView.dayHeight);
 			this.getChildren().add(lDayPane);
 			this.dayPanes.add(lDayPane);
 		}
@@ -57,10 +55,9 @@ class WeekPane extends Pane {
 		l.setId("hourLine" + hour);
 		l.getStyleClass().add("HourLine");
 		l.startXProperty().set(0.0);
-		l.startYProperty().bind(
-				Util.snapXY(calendarView.hourHeightProperty.multiply(hour)));
+		l.startYProperty().set(Util.snapXY(calendarView.hourHeight * hour));
 		l.endXProperty().bind(Util.snapXY(widthProperty()));
-		l.endYProperty().bind(Util.snapXY(l.startYProperty()));
+		l.endYProperty().set(Util.snapXY(l.getStartY()));
 		getChildren().add(l);
 	}
 
@@ -68,22 +65,20 @@ class WeekPane extends Pane {
 		Line l = new Line(0, 10, 100, 10);
 		l.setId("halfHourLine" + hour);
 		l.getStyleClass().add("HalfHourLine");
-		l.startXProperty().bind(Util.snapXY(calendarView.timeWidthProperty));
+		l.startXProperty().set(Util.snapXY(calendarView.timeWidth));
 		l.endXProperty().bind(Util.snapXY(widthProperty()));
-		l.startYProperty().bind(
-				Util.snapXY(calendarView.hourHeightProperty
-						.multiply(hour + 0.5)));
-		l.endYProperty().bind(Util.snapXY(l.startYProperty()));
+		l.startYProperty().set(
+				Util.snapXY(calendarView.hourHeight * (hour + 0.5)));
+		l.endYProperty().set(Util.snapXY(l.getStartY()));
 		getChildren().add(l);
 	}
 
 	private void drawHourText(int hour) {
 		Text t = new Text(hour + ":00");
-		t.xProperty().bind(
-				calendarView.timeWidthProperty.subtract(
-						t.getBoundsInParent().getWidth()).subtract(
-						calendarView.timeColumnWhitespace / 2));
-		t.yProperty().bind(calendarView.hourHeightProperty.multiply(hour));
+		t.xProperty().set(
+				calendarView.timeWidth - t.getBoundsInParent().getWidth()
+						- calendarView.timeWhitespace / 2);
+		t.yProperty().set(calendarView.hourHeight * hour);
 		t.setTranslateY(t.getBoundsInParent().getHeight());
 		// move it under the line
 		t.getStyleClass().add("HourLabel");
