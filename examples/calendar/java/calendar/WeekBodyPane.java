@@ -8,7 +8,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
 
-class WeekPane extends Pane {
+class WeekBodyPane extends Pane {
 
 	// parent node
 	final CalendarView calendarView;
@@ -18,7 +18,7 @@ class WeekPane extends Pane {
 	/**
 	 * This constructor defines how the WeekPane widget is constructed.
 	 */
-	public WeekPane(CalendarView calendarView) {
+	public WeekBodyPane(CalendarView calendarView) {
 		this.calendarView = calendarView;
 		this.dayPanes = new ArrayList<DayPane>(7);
 

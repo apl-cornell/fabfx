@@ -11,14 +11,16 @@ import javafx.scene.text.Text;
 
 public class CalendarView extends Control {
 
+	protected final CalendarModel model;
+
 	/**
 	 * This constructor defines how the Control widget is constructed
 	 */
-	public CalendarView() {
+	public CalendarView(CalendarModel m) {
+		this.model = m;
+		
 		setPrefSize(1000, 800);
-
 		setSkin(new CalendarViewSkin(this));
-
 		calculateSizes();
 
 		// setup the CSS
@@ -27,6 +29,7 @@ public class CalendarView extends Control {
 
 		// Create a transparent pane where dragging an appointment is visualized
 		Pane dragPane = new Pane();
+		this.getChildren().add(dragPane);
 		dragPane.prefWidthProperty().bind(widthProperty());
 		dragPane.prefHeightProperty().bind(heightProperty());
 
@@ -44,10 +47,12 @@ public class CalendarView extends Control {
 		weekScrollPane.setPannable(false);
 		// panning would conflict with creating a new appointment
 
-		WeekPane weekPane = new WeekPane(this);
-		weekScrollPane.setContent(weekPane);
+		WeekBodyPane weekBodyPane = new WeekBodyPane(this);
+		weekScrollPane.setContent(weekBodyPane);
 
-		this.getChildren().add(dragPane);
+		// The borderPane's top
+		WeekHeaderPane weekHeaderPane = new WeekHeaderPane(this, weekBodyPane);
+		borderPane.setTop(weekHeaderPane);
 	}
 
 	@Override
@@ -63,6 +68,7 @@ public class CalendarView extends Control {
 	protected double timeWidth;
 	protected DoubleProperty dayWidthProperty = new SimpleDoubleProperty(0);
 	protected double dayHeight;
+	protected double headerHeight;
 
 	/**
 	 * Initializes the calculation of widget sizes. The method should called

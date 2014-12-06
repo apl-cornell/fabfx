@@ -7,10 +7,10 @@ public class DayPane extends Pane {
 	// know your header
 	// DayHeaderPane dayHeaderPane = null;
 	
-	protected final WeekPane weekPane;
+	protected final WeekBodyPane weekBodyPane;
 
-	public DayPane(WeekPane weekPane) {
-		this.weekPane = weekPane; 
+	public DayPane(WeekBodyPane weekBodyPane) {
+		this.weekBodyPane = weekBodyPane; 
 
 //		 setStyle("-fx-border-color:PINK;-fx-border-width:4px;");
 		getStyleClass().add("Day");

@@ -101,7 +101,8 @@ public class CalendarApp extends Application {
 //					}
 //				});
 
-		CalendarView calendarView = new CalendarView();
+		CalendarModel calendarModel = new CalendarModel();
+		CalendarView calendarView = new CalendarView(calendarModel);
 		Scene scene = new Scene(calendarView);
 		calendarStage.setScene(scene);
 	}
