@@ -1,7 +1,7 @@
 /* basic settings */
 /*
 .CalendarView { 
-    -fx-skin: "jfxtras.internal.scene.control.skin.agenda.AgendaWeekSkin";
+    -fx-skin: "calendar.CalendarViewSkin";
 }
 */
 
@@ -20,6 +20,13 @@
     -fx-stroke-dash-array: 4 4 4 4;
 }
 
+.Day {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+    -fx-border-color:LIGHTGRAY;
+    -fx-border-width: 0px 0px 0px 1px;
+}
+
 .AgendaWeekSkin .HourLabel {
     -fx-fill: BLACK;
     -fx-stroke: transparent;
@@ -35,12 +42,7 @@
     -fx-font-weight: bold;
 }
 
-.AgendaWeekSkin .Day {
-    -fx-fill: transparent;
-    -fx-stroke: transparent;
-    -fx-border-color:LIGHTGRAY;
-    -fx-border-width: 0px 0px 0px 1px;
-}
+
 
 .AgendaWeekSkin .weekend {
     -fx-background-color: #eeeeee90;

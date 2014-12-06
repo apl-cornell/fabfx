@@ -11,20 +11,21 @@ import javafx.scene.text.Text;
 
 class WeekPane extends Pane {
 
+	// parent node
 	final CalendarView calendarView;
-
-	// final List<DayPane> dayPanes;
+	// children nodes
+	final List<DayPane> dayPanes;
 
 	/**
 	 * This constructor defines how the WeekPane widget is constructed.
 	 */
 	public WeekPane(CalendarView calendarView) {
 		this.calendarView = calendarView;
-		// this.dayPanes = new ArrayList<DayPane>(7);
+		this.dayPanes = new ArrayList<DayPane>(7);
 
 		getStyleClass().add("Week");
 
-		// draw hours
+		// draw hour rows
 		for (int hour = 0; hour < 24; hour++) {
 			// hour line
 			drawHourLine(hour);
@@ -34,20 +35,21 @@ class WeekPane extends Pane {
 			drawHourText(hour);
 		}
 
-		// // 7 days per week
-		// for (int i = 0; i < 7; i++) {
-		// DayPane lDayPane = new DayPane();
-		// lDayPane.setId("dayPane" + i);
-		// lDayPane.layoutXProperty().bind(
-		// dayWidthProperty.multiply(i).add(dayFirstColumnXProperty));
-		// lDayPane.layoutYProperty().set(0.0);
-		// lDayPane.prefWidthProperty().bind(dayWidthProperty);
-		// lDayPane.prefHeightProperty().bind(dayHeightProperty);
-		// getChildren().add(lDayPane);
-		//
-		// // remember
-		// dayPanes.add(lDayPane);
-		// }
+		// draw day columns
+		for (int i = 0; i < 7; i++) {
+			DayPane lDayPane = new DayPane(this);
+			lDayPane.setId("dayPane" + i);
+			lDayPane.layoutXProperty().bind(
+					this.calendarView.dayWidthProperty.multiply(i).add(
+							this.calendarView.timeWidthProperty));
+			lDayPane.layoutYProperty().set(0.0);
+			lDayPane.prefWidthProperty().bind(
+					this.calendarView.dayWidthProperty);
+			lDayPane.prefHeightProperty().bind(
+					this.calendarView.dayHeightProperty);
+			this.getChildren().add(lDayPane);
+			this.dayPanes.add(lDayPane);
+		}
 	}
 
 	private void drawHourLine(int hour) {

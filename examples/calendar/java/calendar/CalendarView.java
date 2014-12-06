@@ -63,6 +63,8 @@ public class CalendarView extends Control {
 	protected DoubleProperty textHeightProperty = new SimpleDoubleProperty(0);
 	protected DoubleProperty hourHeightProperty = new SimpleDoubleProperty(0);
 	protected DoubleProperty timeWidthProperty = new SimpleDoubleProperty(0);
+	protected DoubleProperty dayWidthProperty = new SimpleDoubleProperty(0);
+	protected DoubleProperty dayHeightProperty = new SimpleDoubleProperty(0);
 	protected double timeColumnWhitespace;
 
 	protected void calculateSizes() {
@@ -72,6 +74,8 @@ public class CalendarView extends Control {
 		// 10 is padding
 		timeWidthProperty.set(new Text("88:88").getBoundsInParent().getWidth()
 				+ timeColumnWhitespace);
+		dayWidthProperty.bind((widthProperty().subtract(timeWidthProperty)
+				.divide(7)));
+		dayHeightProperty.set(hourHeightProperty.get() * 24);
 	}
-
 }
