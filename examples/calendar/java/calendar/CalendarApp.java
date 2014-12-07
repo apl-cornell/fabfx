@@ -84,26 +84,29 @@ public class CalendarApp extends Application {
 	}
 
 	private void constructCalendar(Stage calendarStage) {
-//		Agenda agenda = new Agenda();
-//		agenda.createAppointmentCallbackProperty().set(
-//				new Callback<Agenda.CalendarRange, Agenda.Appointment>() {
-//					@Override
-//					public Agenda.Appointment call(
-//							Agenda.CalendarRange calendarRange) {
-//						return new Agenda.AppointmentImpl()
-//								.withStartTime(calendarRange.getStartCalendar())
-//								.withEndTime(calendarRange.getEndCalendar())
-//								.withAppointmentGroup(
-//										new Agenda.AppointmentGroupImpl()
-//												.withStyleClass("group1"));
-//						// it is better to have a map of appointment groups to
-//						// get from
-//					}
-//				});
+		// Agenda agenda = new Agenda();
+		// agenda.createAppointmentCallbackProperty().set(
+		// new Callback<Agenda.CalendarRange, Agenda.Appointment>() {
+		// @Override
+		// public Agenda.Appointment call(
+		// Agenda.CalendarRange calendarRange) {
+		// return new Agenda.AppointmentImpl()
+		// .withStartTime(calendarRange.getStartCalendar())
+		// .withEndTime(calendarRange.getEndCalendar())
+		// .withAppointmentGroup(
+		// new Agenda.AppointmentGroupImpl()
+		// .withStyleClass("group1"));
+		// // it is better to have a map of appointment groups to
+		// // get from
+		// }
+		// });
 
 		CalendarModel calendarModel = new CalendarModel();
 		CalendarView calendarView = new CalendarView(calendarModel);
 		Scene scene = new Scene(calendarView);
+		scene.getStylesheets().add(
+				this.getClass().getResource("CalendarView" + ".css")
+						.toExternalForm());
 		calendarStage.setScene(scene);
 	}
 

@@ -18,14 +18,10 @@ public class CalendarView extends Control {
 	 */
 	public CalendarView(CalendarModel m) {
 		this.model = m;
-		
+
 		setPrefSize(1000, 800);
 		setSkin(new CalendarViewSkin(this));
 		calculateSizes();
-
-		// setup the CSS
-		// the -fx-skin attribute in the CSS sets which Skin class is used
-		this.getStyleClass().add(this.getClass().getSimpleName());
 
 		// Create a transparent pane where dragging an appointment is visualized
 		Pane dragPane = new Pane();
@@ -55,13 +51,6 @@ public class CalendarView extends Control {
 		borderPane.setTop(weekHeaderPane);
 	}
 
-	@Override
-	protected String getUserAgentStylesheet() {
-		return this.getClass()
-				.getResource(this.getClass().getSimpleName() + ".css")
-				.toExternalForm();
-	}
-
 	protected double textHeight;
 	protected double hourHeight;
 	protected double timeWhitespace;
@@ -69,6 +58,7 @@ public class CalendarView extends Control {
 	protected DoubleProperty dayWidthProperty = new SimpleDoubleProperty(0);
 	protected double dayHeight;
 	protected double headerHeight;
+	protected double durationInMinPerPixel;
 
 	/**
 	 * Initializes the calculation of widget sizes. The method should called
@@ -83,6 +73,7 @@ public class CalendarView extends Control {
 				+ timeWhitespace;
 		dayWidthProperty.bind(widthProperty().subtract(timeWidth).divide(7));
 		dayHeight = hourHeight * 24;
+		durationInMinPerPixel = 24 * 60 / dayHeight;
 	}
 
 }

@@ -37,4 +37,9 @@ public class CalendarModel {
 		appointments = javafx.collections.FXCollections.observableArrayList();
 	}
 
+	public boolean isWeekend(int dayOfWeek) {
+		int dayInWeek = calendarObjectProperties.get(dayOfWeek).getValue()
+				.get(Calendar.DAY_OF_WEEK);
+		return dayInWeek == Calendar.SATURDAY || dayInWeek == Calendar.SUNDAY;
+	}
 }

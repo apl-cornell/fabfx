@@ -22,8 +22,6 @@ class WeekBodyPane extends Pane {
 		this.calendarView = calendarView;
 		this.dayPanes = new ArrayList<DayPane>(7);
 
-		getStyleClass().add("Week");
-
 		// draw hour rows
 		for (int hour = 0; hour < 24; hour++) {
 			// hour line
@@ -36,7 +34,7 @@ class WeekBodyPane extends Pane {
 
 		// draw day columns
 		for (int i = 0; i < 7; i++) {
-			DayPane lDayPane = new DayPane(this);
+			DayPane lDayPane = new DayPane(this, i);
 			lDayPane.setId("dayPane" + i);
 			lDayPane.layoutXProperty().bind(
 					this.calendarView.dayWidthProperty.multiply(i).add(
@@ -47,6 +45,11 @@ class WeekBodyPane extends Pane {
 			lDayPane.prefHeightProperty().set(this.calendarView.dayHeight);
 			this.getChildren().add(lDayPane);
 			this.dayPanes.add(lDayPane);
+
+			if (calendarView.model.isWeekend(i))
+				lDayPane.setStyle("-fx-background-color: #eeeeee90;");
+			else
+				lDayPane.setStyle("-fx-background-color: #ffffff90;");
 		}
 	}
 

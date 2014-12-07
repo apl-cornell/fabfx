@@ -1,12 +1,20 @@
 /* basic settings */
+
 /*
 .CalendarView { 
     -fx-skin: "calendar.CalendarViewSkin";
 }
 */
 
-.Week {
-    -fx-background-color: WHITE;
+.Day {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+    -fx-border-color:LIGHTGRAY;
+    -fx-border-width: 0px 0px 0px 1px;
+}
+
+.Weekend {
+    -fx-background-color: #eeeeee90;
 }
 
 .HourLine {
@@ -25,13 +33,6 @@
     -fx-stroke: transparent;
 }
 
-.Day {
-    -fx-fill: transparent;
-    -fx-stroke: transparent;
-    -fx-border-color:LIGHTGRAY;
-    -fx-border-width: 0px 0px 0px 1px;
-}
-
 .DayHeader {
     -fx-border-color:LIGHTGRAY;
     -fx-border-width: 0px 0px 0px 1px;
@@ -42,13 +43,17 @@
     -fx-stroke: transparent;
 }
 
+.GhostRectangle {
+    -fx-fill: transparent;
+    -fx-stroke: #22222280;
+    -fx-stroke-width: 1;
+    -fx-stroke-dash-array: 4 4 4 4;
+}
+
+
 .AgendaWeekSkin .DayHeader .weekend { 
     -fx-text-fill: BLACK;
     -fx-font-weight: bold;
-}
-
-.AgendaWeekSkin .weekend {
-    -fx-background-color: #eeeeee90;
 }
 
 /* TODO: for some reason this does not work: removing today from the style classes does not clear the grayish background 

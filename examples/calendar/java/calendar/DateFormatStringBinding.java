@@ -7,6 +7,9 @@ import java.util.Locale;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.ObjectProperty;
 
+/**
+ * Transforms a stream of {@link java.util.Calendar} into a stream of String.
+ */
 public class DateFormatStringBinding extends StringBinding {
 
 	protected final ObjectProperty<Calendar> date;
@@ -14,7 +17,7 @@ public class DateFormatStringBinding extends StringBinding {
 
 	public DateFormatStringBinding(ObjectProperty<Calendar> date) {
 		this.date = date;
-		datePattern = "MM/dd E";
+		datePattern = "MM/dd/yy E";
 	}
 
 	@Override

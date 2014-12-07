@@ -167,4 +167,5 @@ public class Game extends Application {
 			new KeyFrame(Duration.seconds(0.3), "end", h2, flash_anims));
 		timeline.play();
 	}
+	
 }

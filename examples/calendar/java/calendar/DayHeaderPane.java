@@ -49,7 +49,7 @@ public class DayHeaderPane extends Pane {
 		getStyleClass().add("DayHeader");
 
 		Text text = new Text();
-		double padding = 30;
+		double padding = 20;
 		text.setX(padding); // align left
 		text.setY(text.prefHeight(0));
 		Rectangle lClip = new Rectangle(0, 0, 0, 0);
