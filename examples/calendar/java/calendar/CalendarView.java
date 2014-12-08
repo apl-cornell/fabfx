@@ -3,6 +3,9 @@ package calendar;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.Control;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.BorderPane;
@@ -23,21 +26,37 @@ public class CalendarView extends Control {
 		setSkin(new CalendarViewSkin(this));
 		calculateSizes();
 
+		BorderPane wholePane = new BorderPane();
+		this.getChildren().add(wholePane);
+
+		MenuBar menuBar = new MenuBar();
+		wholePane.setTop(menuBar);
+		menuBar.prefHeightProperty().set(textHeight);
+
+		Menu viewMenu = new Menu("View");
+		menuBar.getMenus().addAll(viewMenu);
+
+		MenuItem showCalendarItem = new MenuItem(
+				"Show another user's calendar...");
+		MenuItem showMyCalendar = new MenuItem("Show my calendar");
+		viewMenu.getItems().addAll(showCalendarItem, showMyCalendar);
+
 		// Create a transparent pane where dragging an appointment is visualized
 		Pane dragPane = new Pane();
-		this.getChildren().add(dragPane);
+		wholePane.setCenter(dragPane);
 		dragPane.prefWidthProperty().bind(widthProperty());
-		dragPane.prefHeightProperty().bind(heightProperty());
+		dragPane.prefHeightProperty().bind(
+				heightProperty().subtract(menuBar.prefWidthProperty()));
 
 		// A BorderPane is placed in the drag pane and sized to match
-		BorderPane borderPane = new BorderPane();
-		dragPane.getChildren().add(borderPane);
-		borderPane.prefWidthProperty().bind(dragPane.widthProperty());
-		borderPane.prefHeightProperty().bind(dragPane.heightProperty());
+		BorderPane calendarPane = new BorderPane();
+		dragPane.getChildren().add(calendarPane);
+		calendarPane.prefWidthProperty().bind(dragPane.widthProperty());
+		calendarPane.prefHeightProperty().bind(dragPane.heightProperty());
 
 		// The borderPane's center
 		ScrollPane weekScrollPane = new ScrollPane();
-		borderPane.setCenter(weekScrollPane);
+		calendarPane.setCenter(weekScrollPane);
 		weekScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
 		weekScrollPane.setFitToWidth(true);
 		weekScrollPane.setPannable(false);
@@ -48,7 +67,8 @@ public class CalendarView extends Control {
 
 		// The borderPane's top
 		WeekHeaderPane weekHeaderPane = new WeekHeaderPane(this, weekBodyPane);
-		borderPane.setTop(weekHeaderPane);
+		calendarPane.setTop(weekHeaderPane);
+
 	}
 
 	protected double textHeight;

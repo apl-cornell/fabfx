@@ -47,7 +47,7 @@ class WeekBodyPane extends Pane {
 			this.dayPanes.add(lDayPane);
 
 			if (calendarView.model.isWeekend(i))
-				lDayPane.setStyle("-fx-background-color: #eeeeee90;");
+				lDayPane.setStyle("-fx-background-color: #e2e2e290;");
 			else
 				lDayPane.setStyle("-fx-background-color: #ffffff90;");
 		}

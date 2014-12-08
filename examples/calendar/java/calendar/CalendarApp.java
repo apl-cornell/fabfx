@@ -17,7 +17,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 public class CalendarApp extends Application {
 
@@ -107,6 +106,7 @@ public class CalendarApp extends Application {
 		scene.getStylesheets().add(
 				this.getClass().getResource("CalendarView" + ".css")
 						.toExternalForm());
+
 		calendarStage.setScene(scene);
 	}
 

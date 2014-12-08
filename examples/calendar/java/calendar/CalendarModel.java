@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import fabric.lang.security.Principal;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
@@ -20,6 +21,8 @@ public class CalendarModel {
 	protected ObjectProperty<Calendar> nowProperty;
 
 	protected ObservableList<Appointment> appointments;
+	
+	protected ObjectProperty<Principal> owner;
 
 	public CalendarModel() {
 		nowProperty = new SimpleObjectProperty<>(this, "calendar",
