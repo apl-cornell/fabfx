@@ -14,8 +14,9 @@
   -->
 
   <property environment="env" />
-  <import file="${env.FABRIC}/common.xml" />
   <import file="../../common.xml" />
+  <property file="../../config.properties" />
+  <import file="${fabric.home}/common.xml" />
 
   <dirname property="game1024.home" file="${ant.file.game1024}" />
 
@@ -41,11 +42,10 @@
   -->
 
   <target name="build"
-          depends="fabfx"
           description="Builds the FabFX 1024 Game">
     <fabc dest="${game1024.home}/classes">
       <arg value="-sourcepath" /> <arg value="${game1024.home}/src" />
-      <arg value="-cp"         /> <arg value="${env.JAVA_HOME}/jre/lib/ext/jfxrt.jar" />
+      <arg value="-cp"         /> <arg value="/usr/lib/jvm/default/jre/lib/ext/jfxrt.jar" />
       <arg value="-cp"         /> <arg value="${game1024.home}/classes" />
 	  <arg value="-cp"         /> <arg pathref="fabfx.classpath"/>
 	  <arg value="-addsigcp"   /> <arg pathref="fabfx.sigcp"/>

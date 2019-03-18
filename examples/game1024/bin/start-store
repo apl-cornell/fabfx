@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_HOME="$(dirname $0)/.."
-PATH="${APP_HOME}/../../bin:${PATH}"
+PATH="/home/bluewres/research/fabric/bin:${PATH}"
 
 export FABRIC_HOME="${APP_HOME}"
 

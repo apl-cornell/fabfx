@@ -14,7 +14,8 @@
   -->
 
   <property environment="env" />
-  <import file="${env.FABRIC}/common.xml" />
+  <property file="../../config.properties" />
+  <import file="${fabric.home}/common.xml" />
   <import file="../../common.xml" />
 
   <dirname property="hello.home" file="${ant.file.hello}" />
@@ -45,7 +46,7 @@
           description="Builds the Hello World example">
     <fabc dest="${hello.home}/classes">
       <arg value="-sourcepath" /> <arg value="${hello.home}/src" />
-      <arg value="-cp"         /> <arg value="${env.JAVA_HOME}/jre/lib/ext/jfxrt.jar" />
+      <arg value="-cp"         /> <arg value="/usr/lib/jvm/default/jre/lib/ext/jfxrt.jar" />
       <arg value="-cp"         /> <arg value="${hello.home}/classes" />
 	  <arg value="-cp"         /> <arg pathref="fabfx.classpath"/>
 	  <arg value="-addsigcp"   /> <arg pathref="fabfx.sigcp"/>

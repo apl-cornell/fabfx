@@ -11,9 +11,13 @@ public class GameModel [label L] {
 	/** The size of the square of tiles. */
 	protected final int{L} size;
 	/** The tile values in the game. A blank tile is represented by zero. */
-	private Int2DArray[L]{L} tiles;
+	// Marked as transient to indicate this won't serialize when shipping
+	// between nodes.
+	private transient Int2DArray[L]{L} tiles;
 	/** Used for randomness. */
-	private RandomGenerator[L]{L} random;
+	// Marked as transient to indicate this won't serialize when shipping
+	// between nodes.
+	private transient RandomGenerator[L]{L} random;
 
 	public GameModel{L} (int{L} size) throws (NegativeArraySizeException{L}) {
 		this.size = size;
@@ -29,18 +33,18 @@ public class GameModel [label L] {
 				if (tiles.get(r,c) == 0) numFree++;
 			}
 		}
-		if (numFree == 0) 
+		if (numFree == 0)
 			return false;
 		int i = random.nextInt(numFree);
 		for (int r = 0; r < size; r++) {
 			for (int c = 0; c < size; c++) {
 				if (tiles.get(r, c) == 0 && i-- == 0) {
-					tiles.set(r, c, random.nextInt(10) == 0 ?  2 : 1); 
+					tiles.set(r, c, random.nextInt(10) == 0 ?  2 : 1);
 					return true;
 				}
 			}
 		}
-		throw new Error("Can't get here");		
+		throw new Error("Can't get here");
 	}
 
 	/** Try to move the puzzle in the specified direction.
@@ -55,8 +59,8 @@ public class GameModel [label L] {
 		for (int x = size - 2; x >= 0; x--) {
 			for (int y = 0; y < size; y++) {
 				int v = rtile(x, y, dx, dy);
-				if (v != 0) {					
-					int x1 = x + 1;					
+				if (v != 0) {
+					int x1 = x + 1;
 					while (x1 < size && rtile(x1, y, dx, dy) == 0)
 						x1++;
 					if (x1 == size) {
@@ -101,7 +105,7 @@ public class GameModel [label L] {
 	/** Get the tile at location loc. */
 	public int{L} tile{L}(Location[L]{L} loc) {
 		return tiles.get(loc.row, loc.col);
-	}	
+	}
 	/** Get the tile at row r, column c. */
 	public int{L;r;c} tile(int r, int c) {
 		return tiles.get(r, c);
@@ -115,5 +119,5 @@ public class GameModel [label L] {
 		Location[L] loc = new Location[L](x,y,dx,dy,this);
 		tiles.set(loc.row, loc.col, v);
 	}
-	
+
 }
